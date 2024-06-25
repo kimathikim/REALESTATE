@@ -1,0 +1,38 @@
+{
+  "canisters": {
+    "REALESTATE_backend": {
+      "build": "python -m kybra REALESTATE_backend src/REALESTATE_backend/src/main.py src/REALESTATE_backend/REALESTATE_backend.did",
+      "candid": "src/REALESTATE_backend/REALESTATE_backend.did",
+      "gzip": true,
+      "post_install": ".kybra/REALESTATE_backend/post_install.sh",
+      "tech_stack": {
+        "cdk": {
+          "kybra": {}
+        },
+        "language": {
+          "python": {}
+        }
+      },
+      "type": "custom",
+      "wasm": ".kybra/REALESTATE_backend/REALESTATE_backend.wasm"
+    },
+    "REALESTATE_frontend": {
+      "dependencies": [
+        "REALESTATE_backend"
+      ],
+      "source": [
+        "src/REALESTATE_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "REALESTATE_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
