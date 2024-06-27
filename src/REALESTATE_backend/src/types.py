@@ -1,13 +1,13 @@
-from kybra import record, Principal, nat, Text, Vec
+from kybra import record, Principal, nat, text, Vec
 
 Property = record({
-    'id': Text,
+    'id': text,
     'owner': Principal,
     'value': nat,
-    'location': Text,
-    'description': Text,
+    'location': text,
+    'description': text,
     'for_sale': bool,
-    'media': Vec[Text],
+    'media': Vec[text],
 })
 
 
@@ -20,7 +20,7 @@ User = record({
 })
 
 Transaction = record({
-    'property_id': Text,
+    'property_id': text,
     "from": Principal,
     "to": Principal,
     "timestamp": nat

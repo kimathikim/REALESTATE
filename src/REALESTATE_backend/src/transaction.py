@@ -1,4 +1,4 @@
-from kybra import update, Principal, Text, query
+from kybra import update, Principal, text, query
 from real_estate.types import properties
 from typing import List
 from time import time
@@ -6,7 +6,7 @@ transactions: List[dict] = []
 
 
 @update
-def transfer_property(property_id: Text, new_owner: Principal) -> Text:
+def transfer_property(property_id: text, new_owner: Principal) -> text:
     for property in properties:
         if property.id == property_id:
             if property.owner != Principal.from_actor():

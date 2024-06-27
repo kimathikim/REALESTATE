@@ -1,13 +1,25 @@
-from kybra import query, update, Principal, Vec
-from typing import Dict, Optional, User
+from kybra import query, update, Principal, Vec, Record, ic
+from typing import Dict, Optional, TypedDict
+
+
+class User(Record):
+    id: Principal
+    name: str
+    email: str
+    roles: Vec[str]
+    mfa_enabled: bool
+
+
+# Dictionary to store users
 users: Dict[Principal, User] = {}
 
 
 @update
 def register_user(name: str, email: str, roles: Vec[str] = []) -> str:
-    caller = Principal.from_actor()
+    caller = ic.caller()
     if caller in users:
         return "User already registered"
+
     new_user = User(id=caller, name=name, email=email,
                     roles=roles, mfa_enabled=False)
     users[caller] = new_user
@@ -16,7 +28,7 @@ def register_user(name: str, email: str, roles: Vec[str] = []) -> str:
 
 @update
 def enable_mfa() -> str:
-    caller = Principal.from_actor()
+    caller = ic.caller()
     user = users.get(caller)
     if user:
         user.mfa_enabled = True
@@ -26,5 +38,5 @@ def enable_mfa() -> str:
 
 @query
 def get_user() -> Optional[User]:
-    caller = Principal.from_actor()
+    caller = ic.caller()
     return users.get(caller)
