@@ -8,19 +8,13 @@
 **/.DS_Store
 
 # dfx temporary files
-.dfx/
 
 
 # rust
-target/
 
 # frontend code
 node_modules/
-dist/
-.svelte-kit/
 
 # environment variables
-.env
-.kybra
 node_modules
 
