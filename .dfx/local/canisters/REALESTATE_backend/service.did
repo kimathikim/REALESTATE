@@ -1,17 +1,39 @@
+type DeletePropertyErr = variant { PropertyDoesNotExist : text };
+type DeletePropertyResult = variant { Ok : Property; Err : DeletePropertyErr };
+type DeleteUserErr = variant { UserDoesNotExist : principal };
+type DeleteUserResult = variant { Ok : User; Err : DeleteUserErr };
 type Property = record {
   id : text;
   media : vec text;
-  value : int;
+  value : nat;
   owner : principal;
   description : text;
   for_sale : bool;
   location : text;
 };
+type Transaction = record {
+  to : principal;
+  from : principal;
+  property_id : text;
+  timestamp : nat;
+};
+type User = record {
+  id : principal;
+  mfa_enabled : bool;
+  name : text;
+  email : text;
+  roles : vec text;
+};
 service : {
-  add_property : (text, nat, text, text, vec text) -> (text);
-  enable_mfa : () -> (text);
+  create_property : (nat, text, text, bool, vec text) -> (text);
+  create_transaction : (text, principal) -> (text);
+  delete_property : (text) -> (DeletePropertyResult);
+  delete_user : (principal) -> (DeleteUserResult);
   get_properties : () -> (vec Property) query;
+  get_property : (text) -> (opt Property) query;
+  get_transaction : (text) -> (opt Transaction) query;
+  get_transactions : () -> (vec Transaction) query;
+  get_user : (principal) -> (opt User) query;
+  get_users : () -> (vec User) query;
   register_user : (text, text, vec text) -> (text);
-  update_property_status : (text, bool) -> (text);
-  update_property_valuation : (text, nat) -> (text);
 }
