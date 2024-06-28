@@ -1,1 +1,17 @@
-service : {}
+type Property = record {
+  id : text;
+  media : vec text;
+  value : int;
+  owner : principal;
+  description : text;
+  for_sale : bool;
+  location : text;
+};
+service : {
+  add_property : (text, nat, text, text, vec text) -> (text);
+  enable_mfa : () -> (text);
+  get_properties : () -> (vec Property) query;
+  register_user : (text, text, vec text) -> (text);
+  update_property_status : (text, bool) -> (text);
+  update_property_valuation : (text, nat) -> (text);
+}
