@@ -1,23 +1,8 @@
-import { useState } from 'react';
-import { REALESTATE_backend } from 'declarations/REALESTATE_backend';
-import LoginForm from './assets/LoginSignup/LoginForm';
+import React from 'react'
+import './LoginSignup.css'
 
-
-function App() {
-  const [greeting, setGreeting] = useState('');
-  
- function handleSubmit(event) {
-   event.preventDefault();
-   const name = event.target.elements.name.value;
-   REALESTATE_backend.greet(name).then((greeting) => {
-     setGreeting(greeting);
-   });
-   return false;
- }
- 
- 
+const LoginSignup = () => {
   return (
-    <div>
     <div>
     <img src="/logo2.svg" alt="DFINITY logo" />
     <br />
@@ -56,9 +41,8 @@ function App() {
       <section id="greeting">{greeting}</section>
 
     </div>
-    <LoginForm/>
-    </div>
-    );
-} 
+  );
+};
 
-export default App;
+
+ export default LoginSignup;
