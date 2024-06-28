@@ -1,69 +1,21 @@
-import secrets
 from kybra import (
+    Async,
     blob,
     CallResult,
-    init,
-    void,
-    Func,
     ic,
     match,
-    nat16,
-    nat32,
-    Opt,
     Principal,
     query,
-    Query,
+    update,
     Record,
     StableBTreeMap,
-    Tuple,
-    update,
     Variant,
     Vec,
+    nat,
     text,
-    Async,
+    Opt,
 )
-from kybra.canisters.management import (
-    HttpResponse as CanisterHttpResponse,
-    HttpTransformArgs,
-    management_canister,
-)
-
-
-# Define HTTP Request and Response records
-class HttpRequest(Record):
-    method: str
-    url: str
-    headers: Vec[Tuple[str, str]]
-    body: blob
-
-
-class HttpResponse(Record):
-    status_code: nat16
-    headers: Vec[Tuple[str, str]]
-    body: blob
-    streaming_strategy: Opt["StreamingStrategy"]
-    upgrade: Opt[bool]
-
-
-class StreamingStrategy(Variant):
-    Callback: "CallbackStrategy"
-
-
-class CallbackStrategy(Record):
-    callback: "Callback"
-    token: "Token"
-
-
-Callback = Func(Query[["Token"], "StreamingCallbackHttpResponse"])
-
-
-class StreamingCallbackHttpResponse(Record):
-    body: blob
-    token: Opt["Token"]
-
-
-class Token(Record):
-    arbitrary_data: str
+import secrets
 
 
 # Define User and Property records
@@ -78,7 +30,7 @@ class User(Record):
 class Property(Record):
     id: text
     owner: Principal
-    value: nat32
+    value: nat
     location: text
     description: text
     for_sale: bool
@@ -100,7 +52,8 @@ def register_user(name: text, email: text, roles: Vec[text] = []) -> text:
     caller = ic.caller()
     if users.contains_key(caller):
         return "User already registered"
-    new_user = User(id=caller, name=name, email=email, roles=roles, mfa_enabled=False)
+    new_user = User(id=caller, name=name, email=email,
+                    roles=roles, mfa_enabled=False)
     users.insert(caller, new_user)
     return "User registered successfully"
 
@@ -136,7 +89,7 @@ def delete_user(id: Principal) -> DeleteUserResult:
 # Property management functions
 @update
 def create_property(
-    value: nat32,
+    value: nat,
     location: text,
     description: text,
     for_sale: bool,
@@ -192,7 +145,7 @@ class Transaction(Record):
     property_id: text
     from_: Principal
     to: Principal
-    timestamp: nat32
+    timestamp: nat
 
 
 transactions = StableBTreeMap[text, Transaction](
@@ -232,81 +185,3 @@ def get_transactions() -> Vec[Transaction]:
 @query
 def get_transaction(id: text) -> Opt[Transaction]:
     return transactions.get(id)
-
-
-# HTTP request handler
-@query
-def http_request(req: HttpRequest) -> HttpResponse:
-    return {
-        "status_code": 200,
-        "headers": [],
-        "body": bytes(),
-        "streaming_strategy": void,
-        "upgrade": False,
-    }
-
-
-# Outgoing HTTP requests
-stable_storage = StableBTreeMap[str, str](
-    memory_id=3, max_key_size=20, max_value_size=1_000
-)
-
-
-@init
-def init_(external_url: str) -> None:
-    stable_storage.insert("external_url", external_url)
-
-
-@update
-def external_get_request(endpoint: str) -> Async[text]:
-    http_result: CallResult[
-        CanisterHttpResponse
-    ] = yield management_canister.http_request(
-        {
-            "url": f"{stable_storage.get('external_url')}{endpoint}",
-            "max_response_bytes": 2_000,
-            "method": {"get": None},
-            "headers": [],
-            "body": bytes(),
-            "transform": {
-                "function": (ic.id(), "transform_response"),
-                "context": bytes(),
-            },
-        }
-    ).with_cycles(50_000_000)
-
-    return match(
-        http_result,
-        {"Ok": lambda ok: ok["body"].decode("utf-8"), "Err": lambda err: ic.trap(err)},
-    )
-
-
-@query
-def transform_response(args: HttpTransformArgs) -> CanisterHttpResponse:
-    http_response = args["response"]
-    http_response["headers"] = []
-    return http_response
-
-
-@update
-def external_post_request(endpoint: str, payload: text) -> Async[text]:
-    http_result: CallResult[
-        CanisterHttpResponse
-    ] = yield management_canister.http_request(
-        {
-            "url": f"{stable_storage.get('external_url')}{endpoint}",
-            "max_response_bytes": 2_000,
-            "method": {"post": None},
-            "headers": [("Content-Type", "application/json")],
-            "body": payload.encode("utf-8"),
-            "transform": {
-                "function": (ic.id(), "transform_response"),
-                "context": bytes(),
-            },
-        }
-    ).with_cycles(50_000_000)
-
-    return match(
-        http_result,
-        {"Ok": lambda ok: ok["body"].decode("utf-8"), "Err": lambda err: ic.trap(err)},
-    )
