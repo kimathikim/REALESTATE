@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 import environment from "vite-plugin-environment";
 import dotenv from "dotenv";
 
-dotenv.config({ path: "../../.env" });
+dotenv.config({ path: "../../.env" }); // Adjust path as per your project structure
 
 export default defineConfig({
   build: {
