@@ -1,31 +1,170 @@
-import { useState } from 'react';
-import { REALESTATE_backend } from 'declarations/REALESTATE_backend';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import './styles/EditProperty.css';
+const App = () => {
+  const history = useHistory();
 
-function App() {
-  const [greeting, setGreeting] = useState('');
+  // State to manage form inputs
+  const [property, setProperty] = useState({
+    id: '12345',
+    name: 'Example Property',
+    owner: 'John Doe',
+    email: 'john.doe@example.com',
+    contact: '123-456-7890',
+    value: '500,000 USD',
+    location: 'Example City, Example Country',
+    description: 'A beautiful property with scenic views.',
+    amenities: ['Swimming Pool', 'Garden', 'Garage'],
+    available: true,
+    images: [
+      { id: 1, url: 'https://example.com/image1.jpg' },
+      { id: 2, url: 'https://example.com/image2.jpg' },
+      { id: 3, url: 'https://example.com/image3.jpg' },
+    ],
+  });
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    REALESTATE_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
+  // Handler to update property details
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProperty({ ...property, [name]: value });
+  };
+
+  // Handler to update amenities array
+  const handleAmenitiesChange = (e) => {
+    const { value } = e.target;
+    const updatedAmenities = [...property.amenities];
+    if (updatedAmenities.includes(value)) {
+      const index = updatedAmenities.indexOf(value);
+      updatedAmenities.splice(index, 1);
+    } else {
+      updatedAmenities.push(value);
+    }
+    setProperty({ ...property, amenities: updatedAmenities });
+  };
+
+  // Handler to save changes
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform update API call or state update here
+    alert('Property details updated successfully!');
+    history.push('/property-list'); // Redirect to property list page after update
+  };
 
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
+    <div className="edit-property-page">
+      <h2>Edit Property Details</h2>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Property Name:
+          <input
+            type="text"
+            name="name"
+            value={property.name}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Owner Name:
+          <input
+            type="text"
+            name="owner"
+            value={property.owner}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Owner Email:
+          <input
+            type="email"
+            name="email"
+            value={property.email}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Contact Number:
+          <input
+            type="tel"
+            name="contact"
+            value={property.contact}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Property Value:
+          <input
+            type="text"
+            name="value"
+            value={property.value}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Location:
+          <input
+            type="text"
+            name="location"
+            value={property.location}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Description:
+          <textarea
+            name="description"
+            value={property.description}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Amenities:
+          <div>
+            <input
+              type="checkbox"
+              name="swimming-pool"
+              value="Swimming Pool"
+              checked={property.amenities.includes('Swimming Pool')}
+              onChange={handleAmenitiesChange}
+            />
+            <label>Swimming Pool</label>
+            <input
+              type="checkbox"
+              name="garden"
+              value="Garden"
+              checked={property.amenities.includes('Garden')}
+              onChange={handleAmenitiesChange}
+            />
+            <label>Garden</label>
+            <input
+              type="checkbox"
+              name="garage"
+              value="Garage"
+              checked={property.amenities.includes('Garage')}
+              onChange={handleAmenitiesChange}
+            />
+            <label>Garage</label>
+          </div>
+        </label>
+        <label>
+          Available:
+          <input
+            type="checkbox"
+            name="available"
+            checked={property.available}
+            onChange={(e) => setProperty({ ...property, available: e.target.checked })}
+          />
+        </label>
+        <button type="submit">Save Changes</button>
       </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    </div>
   );
-}
+};
 
 export default App;
