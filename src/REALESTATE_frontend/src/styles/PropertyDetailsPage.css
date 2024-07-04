@@ -1,0 +1,128 @@
+/* PropertyDetailsPage.css */
+
+.property-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.property-main-image {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.property-main-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.property-info {
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.property-info h2 {
+  margin-bottom: 10px;
+}
+
+.property-info p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.property-images-slideshow {
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+}
+
+.property-images-slideshow img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 10px;
+}
+
+.property-images-slideshow button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.property-images-slideshow button:hover {
+  background-color: #0056b3;
+}
+
+.footer {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer h3, .footer p {
+  margin: 10px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.footer-left, .footer-right {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+}
+
+.footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .property-details-container {
+    padding: 10px;
+  }
+
+  .property-info p {
+    font-size: 14px;
+  }
+
+  .property-images-slideshow button {
+    padding: 8px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-left, .footer-right {
+    padding: 10px 0;
+  }
+}

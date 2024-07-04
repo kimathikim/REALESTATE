@@ -1,0 +1,38 @@
+/* TransactionDetailsPage.css */
+
+.transaction-details-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .transaction-details-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .details {
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .details p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .transaction-details-container {
+      padding: 10px;
+    }
+  
+    .details p {
+      font-size: 14px;
+    }
+  }
+  

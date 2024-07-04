@@ -1,0 +1,44 @@
+/* TokenTransactionHistoryPage.css */
+
+.transaction-history-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .transaction-history-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .transaction-history-container ul {
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .transaction-history-container li {
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .transaction-history-container li p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .transaction-history-container {
+      padding: 15px;
+    }
+  
+    .transaction-history-container li {
+      font-size: 14px;
+    }
+  }
+  

@@ -101,8 +101,8 @@ main {
 
 .search-bar input {
   padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem 0 0 0.25rem;
+  border: 2px solid #ccc;
+  border-radius: 0.35rem 0 0 0.35rem;
 }
 
 .search-bar button {
@@ -110,8 +110,54 @@ main {
   border: none;
   background-color: #3b5998;
   color: white;
-  border-radius: 0 0.25rem 0.25rem 0;
+  border-radius: 0 0.35rem 0.35rem 0;
 }
+
+.homepage-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  flex-wrap: wrap; /* Allow wrapping of flex items */
+}
+
+.div-left, .div-right {
+  flex: 1;
+  margin: 10px;
+}
+
+/* Default layout for larger screens */
+.div-left {
+  text-align: left;
+  background-color: #f9f9f9;
+  border: 2px solid white;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.div-right {
+  text-align: left;
+  background-color: #f9f9f9;
+  padding:1em;
+  border-radius: 5px;
+  border: 3px solid white;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .homepage-container {
+    flex-direction: column;
+  }
+  .footer-content{
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer{
+    height: auto;
+  }
+}
+
 
 .property-listing {
   display: flex;
@@ -127,7 +173,7 @@ main {
   margin: 0.5rem;
   height: auto;
   width: calc(20% - 1rem);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 .property img {
@@ -191,7 +237,7 @@ main {
   text-align: center;
   padding: 4rem 1rem 2rem;
   overflow: hidden;
-  height: 200px;
+  height: auto;
 }
 
 .footer::before {
@@ -223,15 +269,16 @@ main {
   list-style: none;
   padding: 0;
 }
+.footer-left ul {
+  list-style: none;
+  padding: 0;
+}
 
 .footer-right ul li {
   margin-bottom: 0.5rem;
 }
 
-.footer-right ul li a {
-  color: white;
-  text-decoration: none;
-}
+
 
 .footer-right ul li a:hover {
   text-decoration: underline;

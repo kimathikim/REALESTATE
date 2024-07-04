@@ -1,170 +1,169 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import './styles/EditProperty.css';
-const App = () => {
-  const history = useHistory();
+import './styles/AddProperty.css';
 
-  // State to manage form inputs
-  const [property, setProperty] = useState({
-    id: '12345',
-    name: 'Example Property',
-    owner: 'John Doe',
-    email: 'john.doe@example.com',
-    contact: '123-456-7890',
-    value: '500,000 USD',
-    location: 'Example City, Example Country',
-    description: 'A beautiful property with scenic views.',
-    amenities: ['Swimming Pool', 'Garden', 'Garage'],
-    available: true,
-    images: [
-      { id: 1, url: 'https://example.com/image1.jpg' },
-      { id: 2, url: 'https://example.com/image2.jpg' },
-      { id: 3, url: 'https://example.com/image3.jpg' },
-    ],
+function AddPropertyPage() {
+  const [formData, setFormData] = useState({
+    propertyTitle: '',
+    propertyType: '',
+    description: '',
+    location: '',
+    city: '',
+    state: '',
+    country: '',
+    ownerName: '',
+    ownerEmail: '',
+    ownerContactNumber: '',
+    propertyValue: '',
+    availability: '',
+    bedrooms: '',
+    bathrooms: '',
+    squareFootage: '',
+    water: false,
+    wifi: false,
+    parking: false,
+    swimmingPool: false,
+    garden: false,
+    propertyImages: [],
+    yearBuilt: '',
+    floorNumber: ''
   });
 
-  // Handler to update property details
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProperty({ ...property, [name]: value });
-  };
-
-  // Handler to update amenities array
-  const handleAmenitiesChange = (e) => {
-    const { value } = e.target;
-    const updatedAmenities = [...property.amenities];
-    if (updatedAmenities.includes(value)) {
-      const index = updatedAmenities.indexOf(value);
-      updatedAmenities.splice(index, 1);
+    const { name, value, type, checked } = e.target;
+    if (type === 'checkbox') {
+      setFormData({ ...formData, [name]: checked });
+    } else if (type === 'file') {
+      setFormData({ ...formData, [name]: e.target.files });
     } else {
-      updatedAmenities.push(value);
+      setFormData({ ...formData, [name]: value });
     }
-    setProperty({ ...property, amenities: updatedAmenities });
   };
 
-  // Handler to save changes
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform update API call or state update here
-    alert('Property details updated successfully!');
-    history.push('/property-list'); // Redirect to property list page after update
+    // Handle form submission logic here
+    console.log(formData);
   };
 
   return (
-    <div className="edit-property-page">
-      <h2>Edit Property Details</h2>
+    <div className="add-property-page">
+      <h1>Add Property</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Property Name:
-          <input
-            type="text"
-            name="name"
-            value={property.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Owner Name:
-          <input
-            type="text"
-            name="owner"
-            value={property.owner}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Owner Email:
-          <input
-            type="email"
-            name="email"
-            value={property.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Contact Number:
-          <input
-            type="tel"
-            name="contact"
-            value={property.contact}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Property Value:
-          <input
-            type="text"
-            name="value"
-            value={property.value}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Location:
-          <input
-            type="text"
-            name="location"
-            value={property.location}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Description:
-          <textarea
-            name="description"
-            value={property.description}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Amenities:
-          <div>
-            <input
-              type="checkbox"
-              name="swimming-pool"
-              value="Swimming Pool"
-              checked={property.amenities.includes('Swimming Pool')}
-              onChange={handleAmenitiesChange}
-            />
-            <label>Swimming Pool</label>
-            <input
-              type="checkbox"
-              name="garden"
-              value="Garden"
-              checked={property.amenities.includes('Garden')}
-              onChange={handleAmenitiesChange}
-            />
-            <label>Garden</label>
-            <input
-              type="checkbox"
-              name="garage"
-              value="Garage"
-              checked={property.amenities.includes('Garage')}
-              onChange={handleAmenitiesChange}
-            />
-            <label>Garage</label>
+        <div className="form-row">
+          <div className="form-column">
+            <div className='div1'>
+            <h2>Basic Information</h2>
+            <label>
+              Property Title:
+              <input type="text" name="propertyTitle" value={formData.propertyTitle} onChange={handleChange} required />
+            </label>
+            <label>
+              Property Type:
+              <select name="propertyType" value={formData.propertyType} onChange={handleChange} required>
+                <option value="">Select Type</option>
+                <option value="apartment">Apartment</option>
+                <option value="house">House</option>
+                <option value="commercial">Commercial</option>
+              </select>
+            </label>
+            <label>
+              Description:
+              <textarea name="description" value={formData.description} onChange={handleChange} required></textarea>
+            </label>
+            <label>
+              Address:
+              <input type="text/number" name="address" value={formData.location} onChange={handleChange} placeholder="20157,Kabarak" required />
+            </label>
+            <label>
+              Location:
+              <input type="text" name="location" value={formData.location} onChange={handleChange} placeholder="Country/City" required />
+            </label>
+            </div>
           </div>
-        </label>
-        <label>
-          Available:
-          <input
-            type="checkbox"
-            name="available"
-            checked={property.available}
-            onChange={(e) => setProperty({ ...property, available: e.target.checked })}
-          />
-        </label>
-        <button type="submit">Save Changes</button>
+
+          <div className="form-column">
+            <h2>Contact Information</h2>
+            <label>
+              Owner's Name:
+              <input type="text" name="ownerName" value={formData.ownerName} onChange={handleChange} required />
+            </label>
+            <label>
+              Owner's Email:
+              <input type="email" name="ownerEmail" value={formData.ownerEmail} onChange={handleChange} required />
+            </label>
+            <label>
+              Owner's Contact Number:
+              <input type="text" name="ownerContactNumber" value={formData.ownerContactNumber} onChange={handleChange} required min="0" />
+            </label>
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-column">
+            <h2>Property Details</h2>
+            <label>
+              Property Value:
+              <input type="number" name="propertyValue" value={formData.propertyValue} onChange={handleChange} required min="0" />
+            </label>
+            <label>
+              Availability:
+              <select name="availability" value={formData.availability} onChange={handleChange} required>
+                <option value="">Select Availability</option>
+                <option value="for sale">For Sale</option>
+                <option value="for rent">For Rent</option>
+              </select>
+            </label>
+            <label>
+              Bedrooms:
+              <input type="number" name="bedrooms" value={formData.bedrooms} onChange={handleChange} required min="0" />
+            </label>
+          </div>
+          <div className="form-column">
+            <h2>Available Amenities</h2>
+            <label>
+              Bathrooms:
+              <input type="number" name="bathrooms" value={formData.bathrooms} onChange={handleChange} required min="0" />
+            </label>
+            <label>
+              Square Footage:
+              <input type="number" name="squareFootage" value={formData.squareFootage} onChange={handleChange} required min="0" />
+            </label>
+            <label>
+              Water:
+              <input type="checkbox" name="water" checked={formData.water} onChange={handleChange} />
+            </label>
+            <label>
+              Wifi:
+              <input type="checkbox" name="wifi" checked={formData.wifi} onChange={handleChange} />
+            </label>
+            <label>
+              Parking:
+              <input type="checkbox" name="parking" checked={formData.parking} onChange={handleChange} />
+            </label>
+            <label>
+              Swimming Pool:
+              <input type="checkbox" name="swimmingPool" checked={formData.swimmingPool} onChange={handleChange} />
+            </label>
+            <label>
+              Garden:
+              <input type="checkbox" name="garden" checked={formData.garden} onChange={handleChange} />
+            </label>
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-column">
+            <h2>House Images</h2>
+            <label>
+              Property Images:
+              <input type="file" name="propertyImages" multiple onChange={handleChange} required />
+            </label>
+          </div>
+        </div>
+        <div className="button-container">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );
-};
+}
 
-export default App;
+export default AddPropertyPage;

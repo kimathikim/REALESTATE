@@ -16,6 +16,8 @@
     "src/REALESTATE_frontend"
   ],
   "dependencies": {
+    "@dfinity/agent": "^1.4.0",
+    "@dfinity/auth-client": "^1.4.0",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.24.0",
     "styled-components": "^6.1.11"
