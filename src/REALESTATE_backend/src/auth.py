@@ -30,8 +30,7 @@ def register_user(name: str, email: str, roles: Vec[str] = []) -> str:
 def enable_mfa() -> str:
     caller = ic.caller()
     user = users.get(caller)
-    if user:
-        user.mfa_enabled = True
+    if user and user["mfa_enabled"] is True:
         return "MFA enabled"
     return "User not found"
 
