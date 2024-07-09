@@ -1378,247 +1378,6 @@ async fn async_result_handler_call(
     let qual_name: String = args[1].clone().try_from_vm_value(vm)?;
     let cross_canister_call_function_name = format!("call_{}", qual_name.replace(".", "_"));
     let call_result_instance = match &cross_canister_call_function_name[..] {
-        "call_ManagementCanister_bitcoin_get_balance" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (GetBalanceArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_bitcoin_get_balance(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_bitcoin_get_current_fee_percentiles" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (GetCurrentFeePercentilesArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_bitcoin_get_current_fee_percentiles(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_bitcoin_get_utxos" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (GetUtxosArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_bitcoin_get_utxos(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_bitcoin_send_transaction" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (SendTransactionArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_bitcoin_send_transaction(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_create_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (CreateCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_create_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_update_settings" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (UpdateSettingsArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_update_settings(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_install_code" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (InstallCodeArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_install_code(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_uninstall_code" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (UninstallCodeArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_uninstall_code(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_start_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (StartCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_start_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_stop_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (StopCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_stop_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_canister_status" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (CanisterStatusArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_canister_status(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_delete_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (DeleteCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_delete_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_deposit_cycles" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (DepositCyclesArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_deposit_cycles(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_raw_rand" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_raw_rand(canister_id_principal, ()).await,
-            )?
-        }
-        "call_ManagementCanister_provisional_create_canister_with_cycles" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (ProvisionalCreateCanisterWithCyclesArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_provisional_create_canister_with_cycles(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_provisional_top_up_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (ProvisionalTopUpCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_provisional_top_up_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_http_request" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (HttpRequestArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_http_request(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_ecdsa_public_key" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (EcdsaPublicKeyArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_ecdsa_public_key(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
-        "call_ManagementCanister_sign_with_ecdsa" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (SignWithEcdsaArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_ManagementCanister_sign_with_ecdsa(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                )
-                .await,
-            )?
-        }
         _ => {
             return Err(vm.new_attribute_error(format!(
                 "canister '{}' has no attribute '{}'",
@@ -1638,285 +1397,6 @@ async fn async_result_handler_call_with_payment(
     let cross_canister_call_with_payment_function_name =
         format!("call_with_payment_{}", qual_name.replace(".", "_"));
     let call_result_instance = match &cross_canister_call_with_payment_function_name[..] {
-        "call_with_payment_ManagementCanister_bitcoin_get_balance" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (GetBalanceArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_bitcoin_get_balance(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_bitcoin_get_current_fee_percentiles" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (GetCurrentFeePercentilesArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_bitcoin_get_current_fee_percentiles(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_bitcoin_get_utxos" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (GetUtxosArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_bitcoin_get_utxos(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_bitcoin_send_transaction" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (SendTransactionArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_bitcoin_send_transaction(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_create_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (CreateCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_create_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_update_settings" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (UpdateSettingsArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_update_settings(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_install_code" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (InstallCodeArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_install_code(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_uninstall_code" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (UninstallCodeArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_uninstall_code(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_start_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (StartCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_start_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_stop_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (StopCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_stop_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_canister_status" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (CanisterStatusArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_canister_status(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_delete_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (DeleteCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_delete_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_deposit_cycles" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (DepositCyclesArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_deposit_cycles(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_raw_rand" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_raw_rand(canister_id_principal, (), payment)
-                    .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_provisional_create_canister_with_cycles" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (ProvisionalCreateCanisterWithCyclesArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_provisional_create_canister_with_cycles(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_provisional_top_up_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (ProvisionalTopUpCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_provisional_top_up_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_http_request" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (HttpRequestArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_http_request(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_ecdsa_public_key" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (EcdsaPublicKeyArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_ecdsa_public_key(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment_ManagementCanister_sign_with_ecdsa" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (SignWithEcdsaArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u64 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment_ManagementCanister_sign_with_ecdsa(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
         _ => {
             return Err(vm.new_attribute_error(format!(
                 "canister '{}' has no attribute '{}'",
@@ -1936,289 +1416,6 @@ async fn async_result_handler_call_with_payment128(
     let cross_canister_call_with_payment128_function_name =
         format!("call_with_payment128_{}", qual_name.replace(".", "_"));
     let call_result_instance = match &cross_canister_call_with_payment128_function_name[..] {
-        "call_with_payment128_ManagementCanister_bitcoin_get_balance" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (GetBalanceArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_bitcoin_get_balance(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_bitcoin_get_current_fee_percentiles" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (GetCurrentFeePercentilesArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_bitcoin_get_current_fee_percentiles(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_bitcoin_get_utxos" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (GetUtxosArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_bitcoin_get_utxos(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_bitcoin_send_transaction" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (SendTransactionArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_bitcoin_send_transaction(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_create_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (CreateCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_create_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_update_settings" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (UpdateSettingsArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_update_settings(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_install_code" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (InstallCodeArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_install_code(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_uninstall_code" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (UninstallCodeArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_uninstall_code(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_start_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (StartCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_start_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_stop_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (StopCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_stop_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_canister_status" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (CanisterStatusArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_canister_status(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_delete_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (DeleteCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_delete_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_deposit_cycles" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (DepositCyclesArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_deposit_cycles(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_raw_rand" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[2usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_raw_rand(
-                    canister_id_principal,
-                    (),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_provisional_create_canister_with_cycles" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (ProvisionalCreateCanisterWithCyclesArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_provisional_create_canister_with_cycles(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_provisional_top_up_canister" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (ProvisionalTopUpCanisterArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_provisional_top_up_canister(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_http_request" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (HttpRequestArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_http_request(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_ecdsa_public_key" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (EcdsaPublicKeyArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_ecdsa_public_key(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
-        "call_with_payment128_ManagementCanister_sign_with_ecdsa" => {
-            let canister_id_principal: candid::Principal = args[0].clone().try_from_vm_value(vm)?;
-            let _cdk_user_defined_args: (SignWithEcdsaArgs) =
-                args[2usize].clone().try_from_vm_value(vm)?;
-            let payment: u128 = args[3usize].clone().try_from_vm_value(vm)?;
-            create_call_result_instance(
-                vm,
-                call_with_payment128_ManagementCanister_sign_with_ecdsa(
-                    canister_id_principal,
-                    (_cdk_user_defined_args,),
-                    payment,
-                )
-                .await,
-            )?
-        }
         _ => {
             return Err(vm.new_attribute_error(format!(
                 "canister '{}' has no attribute '{}'",
@@ -2521,343 +1718,6 @@ impl Ic {
             .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
     }
     #[pymethod]
-    fn notify_ManagementCanister_bitcoin_get_balance_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (GetBalanceArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_bitcoin_get_balance(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_bitcoin_get_current_fee_percentiles_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (GetCurrentFeePercentilesArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_bitcoin_get_current_fee_percentiles(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_bitcoin_get_utxos_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (GetUtxosArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_bitcoin_get_utxos(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_bitcoin_send_transaction_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (SendTransactionArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_bitcoin_send_transaction(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_create_canister_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (CreateCanisterArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_create_canister(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_update_settings_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (UpdateSettingsArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_update_settings(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_install_code_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (InstallCodeArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_install_code(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_uninstall_code_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (UninstallCodeArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_uninstall_code(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_start_canister_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (StartCanisterArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_start_canister(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_stop_canister_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (StopCanisterArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_stop_canister(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_canister_status_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (CanisterStatusArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_canister_status(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_delete_canister_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (DeleteCanisterArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_delete_canister(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_deposit_cycles_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (DepositCyclesArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_deposit_cycles(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_raw_rand_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_raw_rand(canister_id_principal, ());
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_provisional_create_canister_with_cycles_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (ProvisionalCreateCanisterWithCyclesArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_provisional_create_canister_with_cycles(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_provisional_top_up_canister_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (ProvisionalTopUpCanisterArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_provisional_top_up_canister(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_http_request_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (HttpRequestArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_http_request(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_ecdsa_public_key_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (EcdsaPublicKeyArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_ecdsa_public_key(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_ManagementCanister_sign_with_ecdsa_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (SignWithEcdsaArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let notify_result = notify_ManagementCanister_sign_with_ecdsa(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
     fn notify_raw(
         &self,
         canister_id_py_object_ref: rustpython_vm::PyObjectRef,
@@ -2876,421 +1736,6 @@ impl Ic {
             &method_string,
             &args_raw_vec,
             payment,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_bitcoin_get_balance_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (GetBalanceArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_bitcoin_get_balance(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_bitcoin_get_current_fee_percentiles_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (GetCurrentFeePercentilesArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result =
-            notify_with_payment128_ManagementCanister_bitcoin_get_current_fee_percentiles(
-                canister_id_principal,
-                (_cdk_user_defined_args,),
-                cycles,
-            );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_bitcoin_get_utxos_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (GetUtxosArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_bitcoin_get_utxos(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_bitcoin_send_transaction_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (SendTransactionArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_bitcoin_send_transaction(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_create_canister_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (CreateCanisterArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_create_canister(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_update_settings_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (UpdateSettingsArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_update_settings(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_install_code_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (InstallCodeArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_install_code(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_uninstall_code_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (UninstallCodeArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_uninstall_code(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_start_canister_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (StartCanisterArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_start_canister(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_stop_canister_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (StopCanisterArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_stop_canister(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_canister_status_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (CanisterStatusArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_canister_status(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_delete_canister_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (DeleteCanisterArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_delete_canister(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_deposit_cycles_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (DepositCyclesArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_deposit_cycles(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_raw_rand_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result =
-            notify_with_payment128_ManagementCanister_raw_rand(canister_id_principal, (), cycles);
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_provisional_create_canister_with_cycles_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (ProvisionalCreateCanisterWithCyclesArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result =
-            notify_with_payment128_ManagementCanister_provisional_create_canister_with_cycles(
-                canister_id_principal,
-                (_cdk_user_defined_args,),
-                cycles,
-            );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_provisional_top_up_canister_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (ProvisionalTopUpCanisterArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_provisional_top_up_canister(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_http_request_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (HttpRequestArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_http_request(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_ecdsa_public_key_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (EcdsaPublicKeyArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_ecdsa_public_key(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
-        );
-        notify_result
-            .try_into_vm_value(vm)
-            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
-    }
-    #[pymethod]
-    fn notify_with_payment128_ManagementCanister_sign_with_ecdsa_wrapper(
-        &self,
-        args_py_object_refs: Vec<rustpython_vm::PyObjectRef>,
-        vm: &rustpython_vm::VirtualMachine,
-    ) -> rustpython_vm::PyResult {
-        let canister_id_principal: candid::Principal =
-            args_py_object_refs[0].clone().try_from_vm_value(vm)?;
-        let _cdk_user_defined_args: (SignWithEcdsaArgs) =
-            args_py_object_refs[2usize].clone().try_from_vm_value(vm)?;
-        let cycles: u128 = args_py_object_refs[args_py_object_refs.len() - 1]
-            .clone()
-            .try_from_vm_value(vm)?;
-        let notify_result = notify_with_payment128_ManagementCanister_sign_with_ecdsa(
-            canister_id_principal,
-            (_cdk_user_defined_args,),
-            cycles,
         );
         notify_result
             .try_into_vm_value(vm)
@@ -3487,6 +1932,27 @@ impl Ic {
     ) -> rustpython_vm::PyResult {
         let memory_id: u8 = memory_id_py_object_ref.try_from_vm_value(vm)?;
         match memory_id {
+            0u8 => {
+                let key = StableBTreeMap0KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                STABLE_B_TREE_MAP_0_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow().contains_key(&key))
+                    .try_into_vm_value(vm)
+                    .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+            }
+            1u8 => {
+                let key = StableBTreeMap1KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                STABLE_B_TREE_MAP_1_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow().contains_key(&key))
+                    .try_into_vm_value(vm)
+                    .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+            }
+            2u8 => {
+                let key = StableBTreeMap2KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                STABLE_B_TREE_MAP_2_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow().contains_key(&key))
+                    .try_into_vm_value(vm)
+                    .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+            }
             _ => Err(vm.new_lookup_error(format!(
                 "memory_id {} does not have an associated StableBTreeMap",
                 memory_id
@@ -3502,6 +1968,27 @@ impl Ic {
     ) -> rustpython_vm::PyResult {
         let memory_id: u8 = memory_id_py_object_ref.try_from_vm_value(vm)?;
         match memory_id {
+            0u8 => {
+                let key = StableBTreeMap0KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                STABLE_B_TREE_MAP_0_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow().get(&key))
+                    .try_into_vm_value(vm)
+                    .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+            }
+            1u8 => {
+                let key = StableBTreeMap1KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                STABLE_B_TREE_MAP_1_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow().get(&key))
+                    .try_into_vm_value(vm)
+                    .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+            }
+            2u8 => {
+                let key = StableBTreeMap2KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                STABLE_B_TREE_MAP_2_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow().get(&key))
+                    .try_into_vm_value(vm)
+                    .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+            }
             _ => Err(vm.new_lookup_error(format!(
                 "memory_id {} does not have an associated StableBTreeMap",
                 memory_id
@@ -3518,6 +2005,30 @@ impl Ic {
     ) -> rustpython_vm::PyResult {
         let memory_id: u8 = memory_id_py_object_ref.try_from_vm_value(vm)?;
         match memory_id {
+            0u8 => {
+                let key = StableBTreeMap0KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                let value = StableBTreeMap0ValueType(value_py_object_ref.try_from_vm_value(vm)?);
+                STABLE_B_TREE_MAP_0_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow_mut().insert(key, value))
+                    .try_into_vm_value(vm)
+                    .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+            }
+            1u8 => {
+                let key = StableBTreeMap1KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                let value = StableBTreeMap1ValueType(value_py_object_ref.try_from_vm_value(vm)?);
+                STABLE_B_TREE_MAP_1_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow_mut().insert(key, value))
+                    .try_into_vm_value(vm)
+                    .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+            }
+            2u8 => {
+                let key = StableBTreeMap2KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                let value = StableBTreeMap2ValueType(value_py_object_ref.try_from_vm_value(vm)?);
+                STABLE_B_TREE_MAP_2_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow_mut().insert(key, value))
+                    .try_into_vm_value(vm)
+                    .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+            }
             _ => Err(vm.new_lookup_error(format!(
                 "memory_id {} does not have an associated StableBTreeMap",
                 memory_id
@@ -3532,6 +2043,18 @@ impl Ic {
     ) -> rustpython_vm::PyResult {
         let memory_id: u8 = memory_id_py_object_ref.try_from_vm_value(vm)?;
         match memory_id {
+            0u8 => STABLE_B_TREE_MAP_0_REF_CELL
+                .with(|map_ref_cell| map_ref_cell.borrow().is_empty())
+                .try_into_vm_value(vm)
+                .map_err(|vmc_err| vm.new_type_error(vmc_err.0)),
+            1u8 => STABLE_B_TREE_MAP_1_REF_CELL
+                .with(|map_ref_cell| map_ref_cell.borrow().is_empty())
+                .try_into_vm_value(vm)
+                .map_err(|vmc_err| vm.new_type_error(vmc_err.0)),
+            2u8 => STABLE_B_TREE_MAP_2_REF_CELL
+                .with(|map_ref_cell| map_ref_cell.borrow().is_empty())
+                .try_into_vm_value(vm)
+                .map_err(|vmc_err| vm.new_type_error(vmc_err.0)),
             _ => Err(vm.new_lookup_error(format!(
                 "memory_id {} does not have an associated StableBTreeMap",
                 memory_id
@@ -3546,6 +2069,102 @@ impl Ic {
     ) -> rustpython_vm::PyResult {
         let memory_id: u8 = memory_id_py_object_ref.try_from_vm_value(vm)?;
         match memory_id {
+            0u8 => STABLE_B_TREE_MAP_0_REF_CELL.with(|map_ref_cell| {
+                let (key_value_pairs, type_errors) = map_ref_cell
+                    .borrow()
+                    .iter()
+                    .map(
+                        |(key_wrapper_type, value_wrapper_type)| -> Result<
+                            rustpython_vm::PyObjectRef,
+                            rustpython_vm::builtins::PyBaseExceptionRef,
+                        > {
+                            let key = key_wrapper_type
+                                .0
+                                .try_into_vm_value(vm)
+                                .map_err(|vmc_err| vm.new_type_error(vmc_err.0))?;
+                            let value = value_wrapper_type
+                                .0
+                                .try_into_vm_value(vm)
+                                .map_err(|vmc_err| vm.new_type_error(vmc_err.0))?;
+                            Ok(vm.ctx.new_tuple(vec![key, value]).into())
+                        },
+                    )
+                    .fold((vec![], vec![]), |mut acc, result| {
+                        match result {
+                            Ok(key_value_pair) => acc.0.push(key_value_pair),
+                            Err(type_error) => acc.1.push(type_error),
+                        }
+                        acc
+                    });
+                if type_errors.is_empty() {
+                    return Ok(vm.ctx.new_list(key_value_pairs).into());
+                }
+                Err(type_errors[0].clone())
+            }),
+            1u8 => STABLE_B_TREE_MAP_1_REF_CELL.with(|map_ref_cell| {
+                let (key_value_pairs, type_errors) = map_ref_cell
+                    .borrow()
+                    .iter()
+                    .map(
+                        |(key_wrapper_type, value_wrapper_type)| -> Result<
+                            rustpython_vm::PyObjectRef,
+                            rustpython_vm::builtins::PyBaseExceptionRef,
+                        > {
+                            let key = key_wrapper_type
+                                .0
+                                .try_into_vm_value(vm)
+                                .map_err(|vmc_err| vm.new_type_error(vmc_err.0))?;
+                            let value = value_wrapper_type
+                                .0
+                                .try_into_vm_value(vm)
+                                .map_err(|vmc_err| vm.new_type_error(vmc_err.0))?;
+                            Ok(vm.ctx.new_tuple(vec![key, value]).into())
+                        },
+                    )
+                    .fold((vec![], vec![]), |mut acc, result| {
+                        match result {
+                            Ok(key_value_pair) => acc.0.push(key_value_pair),
+                            Err(type_error) => acc.1.push(type_error),
+                        }
+                        acc
+                    });
+                if type_errors.is_empty() {
+                    return Ok(vm.ctx.new_list(key_value_pairs).into());
+                }
+                Err(type_errors[0].clone())
+            }),
+            2u8 => STABLE_B_TREE_MAP_2_REF_CELL.with(|map_ref_cell| {
+                let (key_value_pairs, type_errors) = map_ref_cell
+                    .borrow()
+                    .iter()
+                    .map(
+                        |(key_wrapper_type, value_wrapper_type)| -> Result<
+                            rustpython_vm::PyObjectRef,
+                            rustpython_vm::builtins::PyBaseExceptionRef,
+                        > {
+                            let key = key_wrapper_type
+                                .0
+                                .try_into_vm_value(vm)
+                                .map_err(|vmc_err| vm.new_type_error(vmc_err.0))?;
+                            let value = value_wrapper_type
+                                .0
+                                .try_into_vm_value(vm)
+                                .map_err(|vmc_err| vm.new_type_error(vmc_err.0))?;
+                            Ok(vm.ctx.new_tuple(vec![key, value]).into())
+                        },
+                    )
+                    .fold((vec![], vec![]), |mut acc, result| {
+                        match result {
+                            Ok(key_value_pair) => acc.0.push(key_value_pair),
+                            Err(type_error) => acc.1.push(type_error),
+                        }
+                        acc
+                    });
+                if type_errors.is_empty() {
+                    return Ok(vm.ctx.new_list(key_value_pairs).into());
+                }
+                Err(type_errors[0].clone())
+            }),
             _ => Err(vm.new_lookup_error(format!(
                 "memory_id {} does not have an associated StableBTreeMap",
                 memory_id
@@ -3560,6 +2179,72 @@ impl Ic {
     ) -> rustpython_vm::PyResult {
         let memory_id: u8 = memory_id_py_object_ref.try_from_vm_value(vm)?;
         match memory_id {
+            0u8 => STABLE_B_TREE_MAP_0_REF_CELL.with(|map_ref_cell| {
+                let (keys, type_errors) = map_ref_cell
+                    .borrow()
+                    .iter()
+                    .map(|(key_wrapper_type, _)| {
+                        key_wrapper_type
+                            .0
+                            .try_into_vm_value(vm)
+                            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+                    })
+                    .fold((vec![], vec![]), |mut acc, result| {
+                        match result {
+                            Ok(key) => acc.0.push(key),
+                            Err(type_error) => acc.1.push(type_error),
+                        }
+                        acc
+                    });
+                if type_errors.is_empty() {
+                    return Ok(vm.ctx.new_list(keys).into());
+                }
+                Err(type_errors[0].clone())
+            }),
+            1u8 => STABLE_B_TREE_MAP_1_REF_CELL.with(|map_ref_cell| {
+                let (keys, type_errors) = map_ref_cell
+                    .borrow()
+                    .iter()
+                    .map(|(key_wrapper_type, _)| {
+                        key_wrapper_type
+                            .0
+                            .try_into_vm_value(vm)
+                            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+                    })
+                    .fold((vec![], vec![]), |mut acc, result| {
+                        match result {
+                            Ok(key) => acc.0.push(key),
+                            Err(type_error) => acc.1.push(type_error),
+                        }
+                        acc
+                    });
+                if type_errors.is_empty() {
+                    return Ok(vm.ctx.new_list(keys).into());
+                }
+                Err(type_errors[0].clone())
+            }),
+            2u8 => STABLE_B_TREE_MAP_2_REF_CELL.with(|map_ref_cell| {
+                let (keys, type_errors) = map_ref_cell
+                    .borrow()
+                    .iter()
+                    .map(|(key_wrapper_type, _)| {
+                        key_wrapper_type
+                            .0
+                            .try_into_vm_value(vm)
+                            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+                    })
+                    .fold((vec![], vec![]), |mut acc, result| {
+                        match result {
+                            Ok(key) => acc.0.push(key),
+                            Err(type_error) => acc.1.push(type_error),
+                        }
+                        acc
+                    });
+                if type_errors.is_empty() {
+                    return Ok(vm.ctx.new_list(keys).into());
+                }
+                Err(type_errors[0].clone())
+            }),
             _ => Err(vm.new_lookup_error(format!(
                 "memory_id {} does not have an associated StableBTreeMap",
                 memory_id
@@ -3574,6 +2259,18 @@ impl Ic {
     ) -> rustpython_vm::PyResult {
         let memory_id: u8 = memory_id_py_object_ref.try_from_vm_value(vm)?;
         match memory_id {
+            0u8 => STABLE_B_TREE_MAP_0_REF_CELL
+                .with(|map_ref_cell| map_ref_cell.borrow().len())
+                .try_into_vm_value(vm)
+                .map_err(|vmc_err| vm.new_type_error(vmc_err.0)),
+            1u8 => STABLE_B_TREE_MAP_1_REF_CELL
+                .with(|map_ref_cell| map_ref_cell.borrow().len())
+                .try_into_vm_value(vm)
+                .map_err(|vmc_err| vm.new_type_error(vmc_err.0)),
+            2u8 => STABLE_B_TREE_MAP_2_REF_CELL
+                .with(|map_ref_cell| map_ref_cell.borrow().len())
+                .try_into_vm_value(vm)
+                .map_err(|vmc_err| vm.new_type_error(vmc_err.0)),
             _ => Err(vm.new_lookup_error(format!(
                 "memory_id {} does not have an associated StableBTreeMap",
                 memory_id
@@ -3589,6 +2286,42 @@ impl Ic {
     ) -> rustpython_vm::PyResult {
         let memory_id: u8 = memory_id_py_object_ref.try_from_vm_value(vm)?;
         match memory_id {
+            0u8 => {
+                let key = StableBTreeMap0KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                match STABLE_B_TREE_MAP_0_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow_mut().remove(&key))
+                {
+                    Some(value) => value
+                        .0
+                        .try_into_vm_value(vm)
+                        .map_err(|vmc_err| vm.new_type_error(vmc_err.0)),
+                    None => Ok(vm.ctx.none()),
+                }
+            }
+            1u8 => {
+                let key = StableBTreeMap1KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                match STABLE_B_TREE_MAP_1_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow_mut().remove(&key))
+                {
+                    Some(value) => value
+                        .0
+                        .try_into_vm_value(vm)
+                        .map_err(|vmc_err| vm.new_type_error(vmc_err.0)),
+                    None => Ok(vm.ctx.none()),
+                }
+            }
+            2u8 => {
+                let key = StableBTreeMap2KeyType(key_py_object_ref.try_from_vm_value(vm)?);
+                match STABLE_B_TREE_MAP_2_REF_CELL
+                    .with(|map_ref_cell| map_ref_cell.borrow_mut().remove(&key))
+                {
+                    Some(value) => value
+                        .0
+                        .try_into_vm_value(vm)
+                        .map_err(|vmc_err| vm.new_type_error(vmc_err.0)),
+                    None => Ok(vm.ctx.none()),
+                }
+            }
             _ => Err(vm.new_lookup_error(format!(
                 "memory_id {} does not have an associated StableBTreeMap",
                 memory_id
@@ -3603,6 +2336,72 @@ impl Ic {
     ) -> rustpython_vm::PyResult {
         let memory_id: u8 = memory_id_py_object_ref.try_from_vm_value(vm)?;
         match memory_id {
+            0u8 => STABLE_B_TREE_MAP_0_REF_CELL.with(|map_ref_cell| {
+                let (values, type_errors) = map_ref_cell
+                    .borrow()
+                    .iter()
+                    .map(|(_, value_wrapper_type)| {
+                        value_wrapper_type
+                            .0
+                            .try_into_vm_value(vm)
+                            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+                    })
+                    .fold((vec![], vec![]), |mut acc, result| {
+                        match result {
+                            Ok(value) => acc.0.push(value),
+                            Err(type_error) => acc.1.push(type_error),
+                        }
+                        acc
+                    });
+                if type_errors.is_empty() {
+                    return Ok(vm.ctx.new_list(values).into());
+                }
+                Err(type_errors[0].clone())
+            }),
+            1u8 => STABLE_B_TREE_MAP_1_REF_CELL.with(|map_ref_cell| {
+                let (values, type_errors) = map_ref_cell
+                    .borrow()
+                    .iter()
+                    .map(|(_, value_wrapper_type)| {
+                        value_wrapper_type
+                            .0
+                            .try_into_vm_value(vm)
+                            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+                    })
+                    .fold((vec![], vec![]), |mut acc, result| {
+                        match result {
+                            Ok(value) => acc.0.push(value),
+                            Err(type_error) => acc.1.push(type_error),
+                        }
+                        acc
+                    });
+                if type_errors.is_empty() {
+                    return Ok(vm.ctx.new_list(values).into());
+                }
+                Err(type_errors[0].clone())
+            }),
+            2u8 => STABLE_B_TREE_MAP_2_REF_CELL.with(|map_ref_cell| {
+                let (values, type_errors) = map_ref_cell
+                    .borrow()
+                    .iter()
+                    .map(|(_, value_wrapper_type)| {
+                        value_wrapper_type
+                            .0
+                            .try_into_vm_value(vm)
+                            .map_err(|vmc_err| vm.new_type_error(vmc_err.0))
+                    })
+                    .fold((vec![], vec![]), |mut acc, result| {
+                        match result {
+                            Ok(value) => acc.0.push(value),
+                            Err(type_error) => acc.1.push(type_error),
+                        }
+                        acc
+                    });
+                if type_errors.is_empty() {
+                    return Ok(vm.ctx.new_list(values).into());
+                }
+                Err(type_errors[0].clone())
+            }),
             _ => Err(vm.new_lookup_error(format!(
                 "memory_id {} does not have an associated StableBTreeMap",
                 memory_id
@@ -3670,7 +2469,205 @@ impl Ic {
         ic_cdk::api::trap(&message)
     }
 }
-thread_local! { static MEMORY_MANAGER_REF_CELL : std :: cell :: RefCell < ic_stable_structures :: memory_manager :: MemoryManager < ic_stable_structures :: DefaultMemoryImpl > > = std :: cell :: RefCell :: new (ic_stable_structures :: memory_manager :: MemoryManager :: init (ic_stable_structures :: DefaultMemoryImpl :: default ())) ; }
+thread_local! { static MEMORY_MANAGER_REF_CELL : std :: cell :: RefCell < ic_stable_structures :: memory_manager :: MemoryManager < ic_stable_structures :: DefaultMemoryImpl > > = std :: cell :: RefCell :: new (ic_stable_structures :: memory_manager :: MemoryManager :: init (ic_stable_structures :: DefaultMemoryImpl :: default ())) ; static STABLE_B_TREE_MAP_0_REF_CELL : std :: cell :: RefCell < ic_stable_structures :: StableBTreeMap < StableBTreeMap0KeyType , StableBTreeMap0ValueType , ic_stable_structures :: memory_manager :: VirtualMemory < ic_stable_structures :: DefaultMemoryImpl > > > = std :: cell :: RefCell :: new (ic_stable_structures :: StableBTreeMap :: init (MEMORY_MANAGER_REF_CELL . with (| m | { m . borrow () . get (ic_stable_structures :: memory_manager :: MemoryId :: new (0u8)) }) ,)) ; static STABLE_B_TREE_MAP_1_REF_CELL : std :: cell :: RefCell < ic_stable_structures :: StableBTreeMap < StableBTreeMap1KeyType , StableBTreeMap1ValueType , ic_stable_structures :: memory_manager :: VirtualMemory < ic_stable_structures :: DefaultMemoryImpl > > > = std :: cell :: RefCell :: new (ic_stable_structures :: StableBTreeMap :: init (MEMORY_MANAGER_REF_CELL . with (| m | { m . borrow () . get (ic_stable_structures :: memory_manager :: MemoryId :: new (1u8)) }) ,)) ; static STABLE_B_TREE_MAP_2_REF_CELL : std :: cell :: RefCell < ic_stable_structures :: StableBTreeMap < StableBTreeMap2KeyType , StableBTreeMap2ValueType , ic_stable_structures :: memory_manager :: VirtualMemory < ic_stable_structures :: DefaultMemoryImpl > > > = std :: cell :: RefCell :: new (ic_stable_structures :: StableBTreeMap :: init (MEMORY_MANAGER_REF_CELL . with (| m | { m . borrow () . get (ic_stable_structures :: memory_manager :: MemoryId :: new (2u8)) }) ,)) ; }
+#[derive(
+    candid :: CandidType,
+    candid :: Deserialize,
+    CdkActTryFromVmValue,
+    Ord,
+    PartialOrd,
+    Eq,
+    PartialEq,
+    Clone,
+)]
+struct StableBTreeMap0KeyType((candid::Principal));
+impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
+    for StableBTreeMap0KeyType
+{
+    fn try_into_vm_value(
+        self,
+        vm: &rustpython::vm::VirtualMachine,
+    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
+        Ok(self.0.try_into_vm_value(vm)?)
+    }
+}
+impl ic_stable_structures::Storable for StableBTreeMap0KeyType {
+    fn to_bytes(&self) -> std::borrow::Cow<[u8]> {
+        std::borrow::Cow::Owned(candid::Encode!(self).unwrap_or_trap())
+    }
+    fn from_bytes(bytes: std::borrow::Cow<[u8]>) -> Self {
+        candid::Decode!(&bytes, Self).unwrap_or_trap()
+    }
+}
+impl ic_stable_structures::BoundedStorable for StableBTreeMap0KeyType {
+    const MAX_SIZE: u32 = 38u32;
+    const IS_FIXED_SIZE: bool = false;
+}
+#[derive(
+    candid :: CandidType,
+    candid :: Deserialize,
+    CdkActTryFromVmValue,
+    Ord,
+    PartialOrd,
+    Eq,
+    PartialEq,
+    Clone,
+)]
+struct StableBTreeMap0ValueType((User));
+impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
+    for StableBTreeMap0ValueType
+{
+    fn try_into_vm_value(
+        self,
+        vm: &rustpython::vm::VirtualMachine,
+    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
+        Ok(self.0.try_into_vm_value(vm)?)
+    }
+}
+impl ic_stable_structures::Storable for StableBTreeMap0ValueType {
+    fn to_bytes(&self) -> std::borrow::Cow<[u8]> {
+        std::borrow::Cow::Owned(candid::Encode!(self).unwrap_or_trap())
+    }
+    fn from_bytes(bytes: std::borrow::Cow<[u8]>) -> Self {
+        candid::Decode!(&bytes, Self).unwrap_or_trap()
+    }
+}
+impl ic_stable_structures::BoundedStorable for StableBTreeMap0ValueType {
+    const MAX_SIZE: u32 = 100000u32;
+    const IS_FIXED_SIZE: bool = false;
+}
+#[derive(
+    candid :: CandidType,
+    candid :: Deserialize,
+    CdkActTryFromVmValue,
+    Ord,
+    PartialOrd,
+    Eq,
+    PartialEq,
+    Clone,
+)]
+struct StableBTreeMap1KeyType((String));
+impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
+    for StableBTreeMap1KeyType
+{
+    fn try_into_vm_value(
+        self,
+        vm: &rustpython::vm::VirtualMachine,
+    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
+        Ok(self.0.try_into_vm_value(vm)?)
+    }
+}
+impl ic_stable_structures::Storable for StableBTreeMap1KeyType {
+    fn to_bytes(&self) -> std::borrow::Cow<[u8]> {
+        std::borrow::Cow::Owned(candid::Encode!(self).unwrap_or_trap())
+    }
+    fn from_bytes(bytes: std::borrow::Cow<[u8]>) -> Self {
+        candid::Decode!(&bytes, Self).unwrap_or_trap()
+    }
+}
+impl ic_stable_structures::BoundedStorable for StableBTreeMap1KeyType {
+    const MAX_SIZE: u32 = 100u32;
+    const IS_FIXED_SIZE: bool = false;
+}
+#[derive(
+    candid :: CandidType,
+    candid :: Deserialize,
+    CdkActTryFromVmValue,
+    Ord,
+    PartialOrd,
+    Eq,
+    PartialEq,
+    Clone,
+)]
+struct StableBTreeMap1ValueType((Property));
+impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
+    for StableBTreeMap1ValueType
+{
+    fn try_into_vm_value(
+        self,
+        vm: &rustpython::vm::VirtualMachine,
+    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
+        Ok(self.0.try_into_vm_value(vm)?)
+    }
+}
+impl ic_stable_structures::Storable for StableBTreeMap1ValueType {
+    fn to_bytes(&self) -> std::borrow::Cow<[u8]> {
+        std::borrow::Cow::Owned(candid::Encode!(self).unwrap_or_trap())
+    }
+    fn from_bytes(bytes: std::borrow::Cow<[u8]>) -> Self {
+        candid::Decode!(&bytes, Self).unwrap_or_trap()
+    }
+}
+impl ic_stable_structures::BoundedStorable for StableBTreeMap1ValueType {
+    const MAX_SIZE: u32 = 1000000u32;
+    const IS_FIXED_SIZE: bool = false;
+}
+#[derive(
+    candid :: CandidType,
+    candid :: Deserialize,
+    CdkActTryFromVmValue,
+    Ord,
+    PartialOrd,
+    Eq,
+    PartialEq,
+    Clone,
+)]
+struct StableBTreeMap2KeyType((String));
+impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
+    for StableBTreeMap2KeyType
+{
+    fn try_into_vm_value(
+        self,
+        vm: &rustpython::vm::VirtualMachine,
+    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
+        Ok(self.0.try_into_vm_value(vm)?)
+    }
+}
+impl ic_stable_structures::Storable for StableBTreeMap2KeyType {
+    fn to_bytes(&self) -> std::borrow::Cow<[u8]> {
+        std::borrow::Cow::Owned(candid::Encode!(self).unwrap_or_trap())
+    }
+    fn from_bytes(bytes: std::borrow::Cow<[u8]>) -> Self {
+        candid::Decode!(&bytes, Self).unwrap_or_trap()
+    }
+}
+impl ic_stable_structures::BoundedStorable for StableBTreeMap2KeyType {
+    const MAX_SIZE: u32 = 100u32;
+    const IS_FIXED_SIZE: bool = false;
+}
+#[derive(
+    candid :: CandidType,
+    candid :: Deserialize,
+    CdkActTryFromVmValue,
+    Ord,
+    PartialOrd,
+    Eq,
+    PartialEq,
+    Clone,
+)]
+struct StableBTreeMap2ValueType((Transaction));
+impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
+    for StableBTreeMap2ValueType
+{
+    fn try_into_vm_value(
+        self,
+        vm: &rustpython::vm::VirtualMachine,
+    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
+        Ok(self.0.try_into_vm_value(vm)?)
+    }
+}
+impl ic_stable_structures::Storable for StableBTreeMap2ValueType {
+    fn to_bytes(&self) -> std::borrow::Cow<[u8]> {
+        std::borrow::Cow::Owned(candid::Encode!(self).unwrap_or_trap())
+    }
+    fn from_bytes(bytes: std::borrow::Cow<[u8]>) -> Self {
+        candid::Decode!(&bytes, Self).unwrap_or_trap()
+    }
+}
+impl ic_stable_structures::BoundedStorable for StableBTreeMap2ValueType {
+    const MAX_SIZE: u32 = 1000u32;
+    const IS_FIXED_SIZE: bool = false;
+}
 pub trait UnwrapOrTrapWithMessage<T> {
     fn unwrap_or_trap(self, err_message: &str) -> T;
 }
@@ -3902,128 +2899,172 @@ fn post_upgrade() {
         });
     });
 }
-candid :: define_function ! (pub Callback : (Token) -> (StreamingCallbackHttpResponse) query);
-impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
-    for Callback
-{
-    fn try_into_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
-        self.0.try_into_vm_value(vm)
-    }
+#[ic_cdk_macros::query(name = "get_users")]
+#[candid::candid_method(query, rename = "get_users")]
+async fn _cdk_user_defined_get_users() -> (Vec<User>) {
+    let interpreter = unsafe { INTERPRETER_OPTION.as_mut() }
+        .unwrap_or_trap("SystemError: missing python interpreter");
+    let vm = &interpreter.vm;
+    let params = ();
+    call_global_python_function("get_users", params)
+        .await
+        .unwrap_or_trap()
 }
-impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
-    for Vec<Callback>
-{
-    fn try_into_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
-        try_into_vm_value_generic_array(self, vm)
-    }
+#[ic_cdk_macros::query(name = "get_user")]
+#[candid::candid_method(query, rename = "get_user")]
+async fn _cdk_user_defined_get_user(_cdk_user_defined_id: candid::Principal) -> (Option<User>) {
+    let interpreter = unsafe { INTERPRETER_OPTION.as_mut() }
+        .unwrap_or_trap("SystemError: missing python interpreter");
+    let vm = &interpreter.vm;
+    let params = (_cdk_user_defined_id.try_into_vm_value(vm).unwrap_or_trap(),);
+    call_global_python_function("get_user", params)
+        .await
+        .unwrap_or_trap()
 }
-impl
-    CdkActTryFromVmValue<
-        Callback,
-        rustpython_vm::builtins::PyBaseExceptionRef,
-        &rustpython::vm::VirtualMachine,
-    > for rustpython::vm::PyObjectRef
-{
-    fn try_from_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<Callback, rustpython_vm::builtins::PyBaseExceptionRef> {
-        let candid_func: candid::Func = self.try_from_vm_value(vm)?;
-        Ok(Callback::new(candid_func.principal, candid_func.method))
-    }
+#[ic_cdk_macros::query(name = "get_properties")]
+#[candid::candid_method(query, rename = "get_properties")]
+async fn _cdk_user_defined_get_properties() -> (Vec<Property>) {
+    let interpreter = unsafe { INTERPRETER_OPTION.as_mut() }
+        .unwrap_or_trap("SystemError: missing python interpreter");
+    let vm = &interpreter.vm;
+    let params = ();
+    call_global_python_function("get_properties", params)
+        .await
+        .unwrap_or_trap()
 }
-impl
-    CdkActTryFromVmValue<
-        Vec<Callback>,
-        rustpython_vm::builtins::PyBaseExceptionRef,
-        &rustpython::vm::VirtualMachine,
-    > for rustpython::vm::PyObjectRef
-{
-    fn try_from_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<Vec<Callback>, rustpython_vm::builtins::PyBaseExceptionRef> {
-        try_from_vm_value_generic_array(self, vm)
-    }
+#[ic_cdk_macros::query(name = "get_property")]
+#[candid::candid_method(query, rename = "get_property")]
+async fn _cdk_user_defined_get_property(_cdk_user_defined_id: String) -> (Option<Property>) {
+    let interpreter = unsafe { INTERPRETER_OPTION.as_mut() }
+        .unwrap_or_trap("SystemError: missing python interpreter");
+    let vm = &interpreter.vm;
+    let params = (_cdk_user_defined_id.try_into_vm_value(vm).unwrap_or_trap(),);
+    call_global_python_function("get_property", params)
+        .await
+        .unwrap_or_trap()
 }
-impl std::cmp::Ord for Callback {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.partial_cmp(other).unwrap_or(std::cmp::Ordering::Equal)
-    }
+#[ic_cdk_macros::query(name = "get_transactions")]
+#[candid::candid_method(query, rename = "get_transactions")]
+async fn _cdk_user_defined_get_transactions() -> (Vec<Transaction>) {
+    let interpreter = unsafe { INTERPRETER_OPTION.as_mut() }
+        .unwrap_or_trap("SystemError: missing python interpreter");
+    let vm = &interpreter.vm;
+    let params = ();
+    call_global_python_function("get_transactions", params)
+        .await
+        .unwrap_or_trap()
 }
-impl std::cmp::PartialOrd for Callback {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        None
-    }
+#[ic_cdk_macros::query(name = "get_transaction")]
+#[candid::candid_method(query, rename = "get_transaction")]
+async fn _cdk_user_defined_get_transaction(_cdk_user_defined_id: String) -> (Option<Transaction>) {
+    let interpreter = unsafe { INTERPRETER_OPTION.as_mut() }
+        .unwrap_or_trap("SystemError: missing python interpreter");
+    let vm = &interpreter.vm;
+    let params = (_cdk_user_defined_id.try_into_vm_value(vm).unwrap_or_trap(),);
+    call_global_python_function("get_transaction", params)
+        .await
+        .unwrap_or_trap()
 }
-candid :: define_function ! (pub HttpTransformFunc : (HttpTransformArgs) -> (HttpResponse) query);
-impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
-    for HttpTransformFunc
-{
-    fn try_into_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
-        self.0.try_into_vm_value(vm)
-    }
+#[ic_cdk_macros::update(name = "register_user")]
+#[candid::candid_method(update, rename = "register_user")]
+async fn _cdk_user_defined_register_user(
+    _cdk_user_defined_name: String,
+    _cdk_user_defined_email: String,
+    _cdk_user_defined_roles: Vec<String>,
+) -> (String) {
+    let interpreter = unsafe { INTERPRETER_OPTION.as_mut() }
+        .unwrap_or_trap("SystemError: missing python interpreter");
+    let vm = &interpreter.vm;
+    let params = (
+        _cdk_user_defined_name
+            .try_into_vm_value(vm)
+            .unwrap_or_trap(),
+        _cdk_user_defined_email
+            .try_into_vm_value(vm)
+            .unwrap_or_trap(),
+        _cdk_user_defined_roles
+            .try_into_vm_value(vm)
+            .unwrap_or_trap(),
+    );
+    call_global_python_function("register_user", params)
+        .await
+        .unwrap_or_trap()
 }
-impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
-    for Vec<HttpTransformFunc>
-{
-    fn try_into_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
-        try_into_vm_value_generic_array(self, vm)
-    }
+#[ic_cdk_macros::update(name = "delete_user")]
+#[candid::candid_method(update, rename = "delete_user")]
+async fn _cdk_user_defined_delete_user(
+    _cdk_user_defined_id: candid::Principal,
+) -> (DeleteUserResult) {
+    let interpreter = unsafe { INTERPRETER_OPTION.as_mut() }
+        .unwrap_or_trap("SystemError: missing python interpreter");
+    let vm = &interpreter.vm;
+    let params = (_cdk_user_defined_id.try_into_vm_value(vm).unwrap_or_trap(),);
+    call_global_python_function("delete_user", params)
+        .await
+        .unwrap_or_trap()
 }
-impl
-    CdkActTryFromVmValue<
-        HttpTransformFunc,
-        rustpython_vm::builtins::PyBaseExceptionRef,
-        &rustpython::vm::VirtualMachine,
-    > for rustpython::vm::PyObjectRef
-{
-    fn try_from_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<HttpTransformFunc, rustpython_vm::builtins::PyBaseExceptionRef> {
-        let candid_func: candid::Func = self.try_from_vm_value(vm)?;
-        Ok(HttpTransformFunc::new(
-            candid_func.principal,
-            candid_func.method,
-        ))
-    }
+#[ic_cdk_macros::update(name = "create_property")]
+#[candid::candid_method(update, rename = "create_property")]
+async fn _cdk_user_defined_create_property(
+    _cdk_user_defined_value: candid::Nat,
+    _cdk_user_defined_location: String,
+    _cdk_user_defined_description: String,
+    _cdk_user_defined_for_sale: bool,
+    _cdk_user_defined_media: Vec<String>,
+) -> (String) {
+    let interpreter = unsafe { INTERPRETER_OPTION.as_mut() }
+        .unwrap_or_trap("SystemError: missing python interpreter");
+    let vm = &interpreter.vm;
+    let params = (
+        _cdk_user_defined_value
+            .try_into_vm_value(vm)
+            .unwrap_or_trap(),
+        _cdk_user_defined_location
+            .try_into_vm_value(vm)
+            .unwrap_or_trap(),
+        _cdk_user_defined_description
+            .try_into_vm_value(vm)
+            .unwrap_or_trap(),
+        _cdk_user_defined_for_sale
+            .try_into_vm_value(vm)
+            .unwrap_or_trap(),
+        _cdk_user_defined_media
+            .try_into_vm_value(vm)
+            .unwrap_or_trap(),
+    );
+    call_global_python_function("create_property", params)
+        .await
+        .unwrap_or_trap()
 }
-impl
-    CdkActTryFromVmValue<
-        Vec<HttpTransformFunc>,
-        rustpython_vm::builtins::PyBaseExceptionRef,
-        &rustpython::vm::VirtualMachine,
-    > for rustpython::vm::PyObjectRef
-{
-    fn try_from_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<Vec<HttpTransformFunc>, rustpython_vm::builtins::PyBaseExceptionRef> {
-        try_from_vm_value_generic_array(self, vm)
-    }
+#[ic_cdk_macros::update(name = "delete_property")]
+#[candid::candid_method(update, rename = "delete_property")]
+async fn _cdk_user_defined_delete_property(_cdk_user_defined_id: String) -> (DeletePropertyResult) {
+    let interpreter = unsafe { INTERPRETER_OPTION.as_mut() }
+        .unwrap_or_trap("SystemError: missing python interpreter");
+    let vm = &interpreter.vm;
+    let params = (_cdk_user_defined_id.try_into_vm_value(vm).unwrap_or_trap(),);
+    call_global_python_function("delete_property", params)
+        .await
+        .unwrap_or_trap()
 }
-impl std::cmp::Ord for HttpTransformFunc {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.partial_cmp(other).unwrap_or(std::cmp::Ordering::Equal)
-    }
-}
-impl std::cmp::PartialOrd for HttpTransformFunc {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        None
-    }
+#[ic_cdk_macros::update(name = "create_transaction")]
+#[candid::candid_method(update, rename = "create_transaction")]
+async fn _cdk_user_defined_create_transaction(
+    _cdk_user_defined_property_id: String,
+    _cdk_user_defined_to: candid::Principal,
+) -> (String) {
+    let interpreter = unsafe { INTERPRETER_OPTION.as_mut() }
+        .unwrap_or_trap("SystemError: missing python interpreter");
+    let vm = &interpreter.vm;
+    let params = (
+        _cdk_user_defined_property_id
+            .try_into_vm_value(vm)
+            .unwrap_or_trap(),
+        _cdk_user_defined_to.try_into_vm_value(vm).unwrap_or_trap(),
+    );
+    call_global_python_function("create_transaction", params)
+        .await
+        .unwrap_or_trap()
 }
 #[derive(
     serde :: Deserialize,
@@ -4037,8 +3078,12 @@ impl std::cmp::PartialOrd for HttpTransformFunc {
     Eq,
     PartialEq,
 )]
-struct Token {
-    arbitrary_data: Box<String>,
+struct User {
+    id: Box<candid::Principal>,
+    name: Box<String>,
+    email: Box<String>,
+    roles: Box<Vec<String>>,
+    mfa_enabled: Box<bool>,
 }
 #[derive(
     serde :: Deserialize,
@@ -4052,9 +3097,14 @@ struct Token {
     Eq,
     PartialEq,
 )]
-struct CallbackStrategy {
-    callback: Box<Callback>,
-    token: Box<Token>,
+struct Property {
+    id: Box<String>,
+    owner: Box<candid::Principal>,
+    value: Box<candid::Nat>,
+    location: Box<String>,
+    description: Box<String>,
+    for_sale: Box<bool>,
+    media: Box<Vec<String>>,
 }
 #[derive(
     serde :: Deserialize,
@@ -4068,9 +3118,12 @@ struct CallbackStrategy {
     Eq,
     PartialEq,
 )]
-struct StreamingCallbackHttpResponse {
-    body: Box<Vec<u8>>,
-    token: Box<Option<Token>>,
+struct Transaction {
+    property_id: Box<String>,
+    #[serde(rename = "from")]
+    from_: Box<candid::Principal>,
+    to: Box<candid::Principal>,
+    timestamp: Box<candid::Nat>,
 }
 #[derive(
     serde :: Deserialize,
@@ -4104,1594 +3157,8 @@ struct ValueTooLarge {
     given: Box<u32>,
     max: Box<u32>,
 }
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct GetBalanceArgs {
-    address: Box<BitcoinAddress>,
-    min_confirmations: Box<Option<u32>>,
-    network: Box<BitcoinNetwork>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct GetCurrentFeePercentilesArgs {
-    network: Box<BitcoinNetwork>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct GetUtxosArgs {
-    address: Box<BitcoinAddress>,
-    filter: Box<Option<UtxosFilter>>,
-    network: Box<BitcoinNetwork>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct Outpoint {
-    txid: Box<Vec<u8>>,
-    vout: Box<u32>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct Utxo {
-    height: Box<u32>,
-    outpoint: Box<Outpoint>,
-    value: Box<Satoshi>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct GetUtxosResult {
-    next_page: Box<Option<Page>>,
-    tip_block_hash: Box<BlockHash>,
-    tip_height: Box<u32>,
-    utxos: Box<Vec<Utxo>>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct SendTransactionArgs {
-    transaction: Box<Vec<u8>>,
-    network: Box<BitcoinNetwork>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct HttpHeader {
-    name: Box<String>,
-    value: Box<String>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct HttpResponse {
-    status: Box<candid::Nat>,
-    headers: Box<Vec<HttpHeader>>,
-    body: Box<Vec<u8>>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct HttpTransformArgs {
-    response: Box<HttpResponse>,
-    context: Box<Vec<u8>>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct HttpTransform {
-    function: Box<HttpTransformFunc>,
-    context: Box<Vec<u8>>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct HttpRequestArgs {
-    url: Box<String>,
-    max_response_bytes: Box<Option<u64>>,
-    method: Box<HttpMethod>,
-    headers: Box<Vec<HttpHeader>>,
-    body: Box<Option<Vec<u8>>>,
-    transform: Box<Option<HttpTransform>>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct KeyId {
-    curve: Box<EcdsaCurve>,
-    name: Box<String>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct EcdsaPublicKeyArgs {
-    canister_id: Box<Option<candid::Principal>>,
-    derivation_path: Box<Vec<Vec<u8>>>,
-    key_id: Box<KeyId>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct SignWithEcdsaArgs {
-    message_hash: Box<Vec<u8>>,
-    derivation_path: Box<Vec<Vec<u8>>>,
-    key_id: Box<KeyId>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct EcdsaPublicKeyResult {
-    public_key: Box<Vec<u8>>,
-    chain_code: Box<Vec<u8>>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct SignWithEcdsaResult {
-    signature: Box<Vec<u8>>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct CreateCanisterArgs {
-    settings: Box<Option<CanisterSettings>>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct CanisterSettings {
-    controllers: Box<Option<Vec<candid::Principal>>>,
-    compute_allocation: Box<Option<candid::Nat>>,
-    memory_allocation: Box<Option<candid::Nat>>,
-    freezing_threshold: Box<Option<candid::Nat>>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct DefiniteCanisterSettings {
-    controllers: Box<Vec<candid::Principal>>,
-    compute_allocation: Box<candid::Nat>,
-    memory_allocation: Box<candid::Nat>,
-    freezing_threshold: Box<candid::Nat>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct CreateCanisterResult {
-    canister_id: Box<candid::Principal>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct UpdateSettingsArgs {
-    canister_id: Box<candid::Principal>,
-    settings: Box<CanisterSettings>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct InstallCodeArgs {
-    mode: Box<InstallCodeMode>,
-    canister_id: Box<candid::Principal>,
-    wasm_module: Box<Vec<u8>>,
-    arg: Box<Vec<u8>>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct UninstallCodeArgs {
-    canister_id: Box<candid::Principal>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct StartCanisterArgs {
-    canister_id: Box<candid::Principal>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct StopCanisterArgs {
-    canister_id: Box<candid::Principal>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct CanisterStatusArgs {
-    canister_id: Box<candid::Principal>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct CanisterStatusResult {
-    status: Box<CanisterStatus>,
-    settings: Box<DefiniteCanisterSettings>,
-    module_hash: Box<Option<Vec<u8>>>,
-    memory_size: Box<candid::Nat>,
-    cycles: Box<candid::Nat>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct DeleteCanisterArgs {
-    canister_id: Box<candid::Principal>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct DepositCyclesArgs {
-    canister_id: Box<candid::Principal>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct ProvisionalCreateCanisterWithCyclesArgs {
-    amount: Box<Option<candid::Nat>>,
-    settings: Box<Option<CanisterSettings>>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct ProvisionalCreateCanisterWithCyclesResult {
-    canister_id: Box<candid::Principal>,
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct ProvisionalTopUpCanisterArgs {
-    canister_id: Box<candid::Principal>,
-    amount: Box<candid::Nat>,
-}
-candid :: define_service ! (ManagementCanister : { "bitcoin_get_balance" : candid :: func ! ((GetBalanceArgs) -> (Satoshi)) ; "bitcoin_get_current_fee_percentiles" : candid :: func ! ((GetCurrentFeePercentilesArgs) -> (Vec < MillisatoshiPerByte >)) ; "bitcoin_get_utxos" : candid :: func ! ((GetUtxosArgs) -> (GetUtxosResult)) ; "bitcoin_send_transaction" : candid :: func ! ((SendTransactionArgs) -> ()) ; "create_canister" : candid :: func ! ((CreateCanisterArgs) -> (CreateCanisterResult)) ; "update_settings" : candid :: func ! ((UpdateSettingsArgs) -> ()) ; "install_code" : candid :: func ! ((InstallCodeArgs) -> ()) ; "uninstall_code" : candid :: func ! ((UninstallCodeArgs) -> ()) ; "start_canister" : candid :: func ! ((StartCanisterArgs) -> ()) ; "stop_canister" : candid :: func ! ((StopCanisterArgs) -> ()) ; "canister_status" : candid :: func ! ((CanisterStatusArgs) -> (CanisterStatusResult)) ; "delete_canister" : candid :: func ! ((DeleteCanisterArgs) -> ()) ; "deposit_cycles" : candid :: func ! ((DepositCyclesArgs) -> ()) ; "raw_rand" : candid :: func ! (() -> (Vec < u8 >)) ; "provisional_create_canister_with_cycles" : candid :: func ! ((ProvisionalCreateCanisterWithCyclesArgs) -> (ProvisionalCreateCanisterWithCyclesResult)) ; "provisional_top_up_canister" : candid :: func ! ((ProvisionalTopUpCanisterArgs) -> ()) ; "http_request" : candid :: func ! ((HttpRequestArgs) -> (HttpResponse)) ; "ecdsa_public_key" : candid :: func ! ((EcdsaPublicKeyArgs) -> (EcdsaPublicKeyResult)) ; "sign_with_ecdsa" : candid :: func ! ((SignWithEcdsaArgs) -> (SignWithEcdsaResult)) });
-impl std::cmp::Ord for ManagementCanister {
-    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.partial_cmp(other).unwrap_or(std::cmp::Ordering::Equal)
-    }
-}
-impl std::cmp::PartialOrd for ManagementCanister {
-    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        None
-    }
-}
-impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
-    for ManagementCanister
-{
-    fn try_into_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
-        unsafe {
-            let scope = match SCOPE_OPTION.clone() {
-                Some(scope) => scope,
-                None => {
-                    return Err(CdkActTryIntoVmValueError(
-                        "SystemError: missing python scope".to_string(),
-                    ))
-                }
-            };
-            Ok(vm
-                .run_block_expr(
-                    scope,
-                    format!(
-                        "from kybra import Principal; {}(Principal.from_str('{}'))",
-                        stringify!(ManagementCanister),
-                        self.0.principal.to_string()
-                    )
-                    .as_str(),
-                )
-                .map_err(|err| err.to_cdk_act_try_into_vm_value_error(vm))?)
-        }
-    }
-}
-impl CdkActTryIntoVmValue<&rustpython::vm::VirtualMachine, rustpython::vm::PyObjectRef>
-    for Vec<ManagementCanister>
-{
-    fn try_into_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<rustpython::vm::PyObjectRef, CdkActTryIntoVmValueError> {
-        try_into_vm_value_generic_array(self, vm)
-    }
-}
-impl
-    CdkActTryFromVmValue<
-        ManagementCanister,
-        rustpython_vm::builtins::PyBaseExceptionRef,
-        &rustpython::vm::VirtualMachine,
-    > for rustpython::vm::PyObjectRef
-{
-    fn try_from_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<ManagementCanister, rustpython_vm::builtins::PyBaseExceptionRef> {
-        let canister_id = self.get_attr("canister_id", vm)?;
-        let to_str = canister_id.get_attr("to_str", vm)?;
-        let result = to_str.call((), vm)?;
-        let result_string: String = result.try_into_value(vm)?;
-        match candid::Principal::from_text(result_string) {
-            Ok(principal) => Ok(ManagementCanister::new(principal)),
-            Err(err) => Err(vm.new_type_error(format!(
-                "TypeError: Could not convert value to Principal: {}",
-                err.to_string()
-            ))),
-        }
-    }
-}
-impl
-    CdkActTryFromVmValue<
-        Vec<ManagementCanister>,
-        rustpython_vm::builtins::PyBaseExceptionRef,
-        &rustpython::vm::VirtualMachine,
-    > for rustpython::vm::PyObjectRef
-{
-    fn try_from_vm_value(
-        self,
-        vm: &rustpython::vm::VirtualMachine,
-    ) -> Result<Vec<ManagementCanister>, rustpython_vm::builtins::PyBaseExceptionRef> {
-        try_from_vm_value_generic_array(self, vm)
-    }
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_bitcoin_get_balance(
-    canister_id_principal: candid::Principal,
-    params: (GetBalanceArgs,),
-) -> ic_cdk::api::call::CallResult<(Satoshi,)> {
-    ic_cdk::api::call::call(canister_id_principal, "bitcoin_get_balance", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_bitcoin_get_balance(
-    canister_id_principal: candid::Principal,
-    params: (GetBalanceArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<(Satoshi,)> {
-    ic_cdk::api::call::call_with_payment(
-        canister_id_principal,
-        "bitcoin_get_balance",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_bitcoin_get_balance(
-    canister_id_principal: candid::Principal,
-    params: (GetBalanceArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<(Satoshi,)> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "bitcoin_get_balance",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_bitcoin_get_balance(
-    canister_id_principal: candid::Principal,
-    params: (GetBalanceArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "bitcoin_get_balance", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_bitcoin_get_balance(
-    canister_id_principal: candid::Principal,
-    params: (GetBalanceArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "bitcoin_get_balance",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_bitcoin_get_current_fee_percentiles(
-    canister_id_principal: candid::Principal,
-    params: (GetCurrentFeePercentilesArgs,),
-) -> ic_cdk::api::call::CallResult<(Vec<MillisatoshiPerByte>,)> {
-    ic_cdk::api::call::call(
-        canister_id_principal,
-        "bitcoin_get_current_fee_percentiles",
-        params,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_bitcoin_get_current_fee_percentiles(
-    canister_id_principal: candid::Principal,
-    params: (GetCurrentFeePercentilesArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<(Vec<MillisatoshiPerByte>,)> {
-    ic_cdk::api::call::call_with_payment(
-        canister_id_principal,
-        "bitcoin_get_current_fee_percentiles",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_bitcoin_get_current_fee_percentiles(
-    canister_id_principal: candid::Principal,
-    params: (GetCurrentFeePercentilesArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<(Vec<MillisatoshiPerByte>,)> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "bitcoin_get_current_fee_percentiles",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_bitcoin_get_current_fee_percentiles(
-    canister_id_principal: candid::Principal,
-    params: (GetCurrentFeePercentilesArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(
-        canister_id_principal,
-        "bitcoin_get_current_fee_percentiles",
-        params,
-    )
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_bitcoin_get_current_fee_percentiles(
-    canister_id_principal: candid::Principal,
-    params: (GetCurrentFeePercentilesArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "bitcoin_get_current_fee_percentiles",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_bitcoin_get_utxos(
-    canister_id_principal: candid::Principal,
-    params: (GetUtxosArgs,),
-) -> ic_cdk::api::call::CallResult<(GetUtxosResult,)> {
-    ic_cdk::api::call::call(canister_id_principal, "bitcoin_get_utxos", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_bitcoin_get_utxos(
-    canister_id_principal: candid::Principal,
-    params: (GetUtxosArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<(GetUtxosResult,)> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "bitcoin_get_utxos", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_bitcoin_get_utxos(
-    canister_id_principal: candid::Principal,
-    params: (GetUtxosArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<(GetUtxosResult,)> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "bitcoin_get_utxos",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_bitcoin_get_utxos(
-    canister_id_principal: candid::Principal,
-    params: (GetUtxosArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "bitcoin_get_utxos", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_bitcoin_get_utxos(
-    canister_id_principal: candid::Principal,
-    params: (GetUtxosArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "bitcoin_get_utxos",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_bitcoin_send_transaction(
-    canister_id_principal: candid::Principal,
-    params: (SendTransactionArgs,),
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call(canister_id_principal, "bitcoin_send_transaction", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_bitcoin_send_transaction(
-    canister_id_principal: candid::Principal,
-    params: (SendTransactionArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment(
-        canister_id_principal,
-        "bitcoin_send_transaction",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_bitcoin_send_transaction(
-    canister_id_principal: candid::Principal,
-    params: (SendTransactionArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "bitcoin_send_transaction",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_bitcoin_send_transaction(
-    canister_id_principal: candid::Principal,
-    params: (SendTransactionArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "bitcoin_send_transaction", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_bitcoin_send_transaction(
-    canister_id_principal: candid::Principal,
-    params: (SendTransactionArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "bitcoin_send_transaction",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_create_canister(
-    canister_id_principal: candid::Principal,
-    params: (CreateCanisterArgs,),
-) -> ic_cdk::api::call::CallResult<(CreateCanisterResult,)> {
-    ic_cdk::api::call::call(canister_id_principal, "create_canister", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_create_canister(
-    canister_id_principal: candid::Principal,
-    params: (CreateCanisterArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<(CreateCanisterResult,)> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "create_canister", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_create_canister(
-    canister_id_principal: candid::Principal,
-    params: (CreateCanisterArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<(CreateCanisterResult,)> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "create_canister",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_create_canister(
-    canister_id_principal: candid::Principal,
-    params: (CreateCanisterArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "create_canister", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_create_canister(
-    canister_id_principal: candid::Principal,
-    params: (CreateCanisterArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "create_canister",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_update_settings(
-    canister_id_principal: candid::Principal,
-    params: (UpdateSettingsArgs,),
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call(canister_id_principal, "update_settings", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_update_settings(
-    canister_id_principal: candid::Principal,
-    params: (UpdateSettingsArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "update_settings", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_update_settings(
-    canister_id_principal: candid::Principal,
-    params: (UpdateSettingsArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "update_settings",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_update_settings(
-    canister_id_principal: candid::Principal,
-    params: (UpdateSettingsArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "update_settings", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_update_settings(
-    canister_id_principal: candid::Principal,
-    params: (UpdateSettingsArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "update_settings",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_install_code(
-    canister_id_principal: candid::Principal,
-    params: (InstallCodeArgs,),
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call(canister_id_principal, "install_code", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_install_code(
-    canister_id_principal: candid::Principal,
-    params: (InstallCodeArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "install_code", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_install_code(
-    canister_id_principal: candid::Principal,
-    params: (InstallCodeArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment128(canister_id_principal, "install_code", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_install_code(
-    canister_id_principal: candid::Principal,
-    params: (InstallCodeArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "install_code", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_install_code(
-    canister_id_principal: candid::Principal,
-    params: (InstallCodeArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(canister_id_principal, "install_code", params, cycles)
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_uninstall_code(
-    canister_id_principal: candid::Principal,
-    params: (UninstallCodeArgs,),
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call(canister_id_principal, "uninstall_code", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_uninstall_code(
-    canister_id_principal: candid::Principal,
-    params: (UninstallCodeArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "uninstall_code", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_uninstall_code(
-    canister_id_principal: candid::Principal,
-    params: (UninstallCodeArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment128(canister_id_principal, "uninstall_code", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_uninstall_code(
-    canister_id_principal: candid::Principal,
-    params: (UninstallCodeArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "uninstall_code", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_uninstall_code(
-    canister_id_principal: candid::Principal,
-    params: (UninstallCodeArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "uninstall_code",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_start_canister(
-    canister_id_principal: candid::Principal,
-    params: (StartCanisterArgs,),
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call(canister_id_principal, "start_canister", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_start_canister(
-    canister_id_principal: candid::Principal,
-    params: (StartCanisterArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "start_canister", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_start_canister(
-    canister_id_principal: candid::Principal,
-    params: (StartCanisterArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment128(canister_id_principal, "start_canister", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_start_canister(
-    canister_id_principal: candid::Principal,
-    params: (StartCanisterArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "start_canister", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_start_canister(
-    canister_id_principal: candid::Principal,
-    params: (StartCanisterArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "start_canister",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_stop_canister(
-    canister_id_principal: candid::Principal,
-    params: (StopCanisterArgs,),
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call(canister_id_principal, "stop_canister", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_stop_canister(
-    canister_id_principal: candid::Principal,
-    params: (StopCanisterArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "stop_canister", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_stop_canister(
-    canister_id_principal: candid::Principal,
-    params: (StopCanisterArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment128(canister_id_principal, "stop_canister", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_stop_canister(
-    canister_id_principal: candid::Principal,
-    params: (StopCanisterArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "stop_canister", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_stop_canister(
-    canister_id_principal: candid::Principal,
-    params: (StopCanisterArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "stop_canister",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_canister_status(
-    canister_id_principal: candid::Principal,
-    params: (CanisterStatusArgs,),
-) -> ic_cdk::api::call::CallResult<(CanisterStatusResult,)> {
-    ic_cdk::api::call::call(canister_id_principal, "canister_status", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_canister_status(
-    canister_id_principal: candid::Principal,
-    params: (CanisterStatusArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<(CanisterStatusResult,)> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "canister_status", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_canister_status(
-    canister_id_principal: candid::Principal,
-    params: (CanisterStatusArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<(CanisterStatusResult,)> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "canister_status",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_canister_status(
-    canister_id_principal: candid::Principal,
-    params: (CanisterStatusArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "canister_status", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_canister_status(
-    canister_id_principal: candid::Principal,
-    params: (CanisterStatusArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "canister_status",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_delete_canister(
-    canister_id_principal: candid::Principal,
-    params: (DeleteCanisterArgs,),
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call(canister_id_principal, "delete_canister", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_delete_canister(
-    canister_id_principal: candid::Principal,
-    params: (DeleteCanisterArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "delete_canister", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_delete_canister(
-    canister_id_principal: candid::Principal,
-    params: (DeleteCanisterArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "delete_canister",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_delete_canister(
-    canister_id_principal: candid::Principal,
-    params: (DeleteCanisterArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "delete_canister", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_delete_canister(
-    canister_id_principal: candid::Principal,
-    params: (DeleteCanisterArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "delete_canister",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_deposit_cycles(
-    canister_id_principal: candid::Principal,
-    params: (DepositCyclesArgs,),
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call(canister_id_principal, "deposit_cycles", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_deposit_cycles(
-    canister_id_principal: candid::Principal,
-    params: (DepositCyclesArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "deposit_cycles", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_deposit_cycles(
-    canister_id_principal: candid::Principal,
-    params: (DepositCyclesArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment128(canister_id_principal, "deposit_cycles", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_deposit_cycles(
-    canister_id_principal: candid::Principal,
-    params: (DepositCyclesArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "deposit_cycles", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_deposit_cycles(
-    canister_id_principal: candid::Principal,
-    params: (DepositCyclesArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "deposit_cycles",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_raw_rand(
-    canister_id_principal: candid::Principal,
-    params: (),
-) -> ic_cdk::api::call::CallResult<(Vec<u8>,)> {
-    ic_cdk::api::call::call(canister_id_principal, "raw_rand", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_raw_rand(
-    canister_id_principal: candid::Principal,
-    params: (),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<(Vec<u8>,)> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "raw_rand", params, cycles).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_raw_rand(
-    canister_id_principal: candid::Principal,
-    params: (),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<(Vec<u8>,)> {
-    ic_cdk::api::call::call_with_payment128(canister_id_principal, "raw_rand", params, cycles).await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_raw_rand(
-    canister_id_principal: candid::Principal,
-    params: (),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "raw_rand", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_raw_rand(
-    canister_id_principal: candid::Principal,
-    params: (),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(canister_id_principal, "raw_rand", params, cycles)
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_provisional_create_canister_with_cycles(
-    canister_id_principal: candid::Principal,
-    params: (ProvisionalCreateCanisterWithCyclesArgs,),
-) -> ic_cdk::api::call::CallResult<(ProvisionalCreateCanisterWithCyclesResult,)> {
-    ic_cdk::api::call::call(
-        canister_id_principal,
-        "provisional_create_canister_with_cycles",
-        params,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_provisional_create_canister_with_cycles(
-    canister_id_principal: candid::Principal,
-    params: (ProvisionalCreateCanisterWithCyclesArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<(ProvisionalCreateCanisterWithCyclesResult,)> {
-    ic_cdk::api::call::call_with_payment(
-        canister_id_principal,
-        "provisional_create_canister_with_cycles",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_provisional_create_canister_with_cycles(
-    canister_id_principal: candid::Principal,
-    params: (ProvisionalCreateCanisterWithCyclesArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<(ProvisionalCreateCanisterWithCyclesResult,)> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "provisional_create_canister_with_cycles",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_provisional_create_canister_with_cycles(
-    canister_id_principal: candid::Principal,
-    params: (ProvisionalCreateCanisterWithCyclesArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(
-        canister_id_principal,
-        "provisional_create_canister_with_cycles",
-        params,
-    )
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_provisional_create_canister_with_cycles(
-    canister_id_principal: candid::Principal,
-    params: (ProvisionalCreateCanisterWithCyclesArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "provisional_create_canister_with_cycles",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_provisional_top_up_canister(
-    canister_id_principal: candid::Principal,
-    params: (ProvisionalTopUpCanisterArgs,),
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call(canister_id_principal, "provisional_top_up_canister", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_provisional_top_up_canister(
-    canister_id_principal: candid::Principal,
-    params: (ProvisionalTopUpCanisterArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment(
-        canister_id_principal,
-        "provisional_top_up_canister",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_provisional_top_up_canister(
-    canister_id_principal: candid::Principal,
-    params: (ProvisionalTopUpCanisterArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<()> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "provisional_top_up_canister",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_provisional_top_up_canister(
-    canister_id_principal: candid::Principal,
-    params: (ProvisionalTopUpCanisterArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "provisional_top_up_canister", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_provisional_top_up_canister(
-    canister_id_principal: candid::Principal,
-    params: (ProvisionalTopUpCanisterArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "provisional_top_up_canister",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_http_request(
-    canister_id_principal: candid::Principal,
-    params: (HttpRequestArgs,),
-) -> ic_cdk::api::call::CallResult<(HttpResponse,)> {
-    ic_cdk::api::call::call(canister_id_principal, "http_request", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_http_request(
-    canister_id_principal: candid::Principal,
-    params: (HttpRequestArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<(HttpResponse,)> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "http_request", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_http_request(
-    canister_id_principal: candid::Principal,
-    params: (HttpRequestArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<(HttpResponse,)> {
-    ic_cdk::api::call::call_with_payment128(canister_id_principal, "http_request", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_http_request(
-    canister_id_principal: candid::Principal,
-    params: (HttpRequestArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "http_request", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_http_request(
-    canister_id_principal: candid::Principal,
-    params: (HttpRequestArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(canister_id_principal, "http_request", params, cycles)
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_ecdsa_public_key(
-    canister_id_principal: candid::Principal,
-    params: (EcdsaPublicKeyArgs,),
-) -> ic_cdk::api::call::CallResult<(EcdsaPublicKeyResult,)> {
-    ic_cdk::api::call::call(canister_id_principal, "ecdsa_public_key", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_ecdsa_public_key(
-    canister_id_principal: candid::Principal,
-    params: (EcdsaPublicKeyArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<(EcdsaPublicKeyResult,)> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "ecdsa_public_key", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_ecdsa_public_key(
-    canister_id_principal: candid::Principal,
-    params: (EcdsaPublicKeyArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<(EcdsaPublicKeyResult,)> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "ecdsa_public_key",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_ecdsa_public_key(
-    canister_id_principal: candid::Principal,
-    params: (EcdsaPublicKeyArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "ecdsa_public_key", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_ecdsa_public_key(
-    canister_id_principal: candid::Principal,
-    params: (EcdsaPublicKeyArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "ecdsa_public_key",
-        params,
-        cycles,
-    )
-}
-#[allow(non_snake_case)]
-async fn call_ManagementCanister_sign_with_ecdsa(
-    canister_id_principal: candid::Principal,
-    params: (SignWithEcdsaArgs,),
-) -> ic_cdk::api::call::CallResult<(SignWithEcdsaResult,)> {
-    ic_cdk::api::call::call(canister_id_principal, "sign_with_ecdsa", params).await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment_ManagementCanister_sign_with_ecdsa(
-    canister_id_principal: candid::Principal,
-    params: (SignWithEcdsaArgs,),
-    cycles: u64,
-) -> ic_cdk::api::call::CallResult<(SignWithEcdsaResult,)> {
-    ic_cdk::api::call::call_with_payment(canister_id_principal, "sign_with_ecdsa", params, cycles)
-        .await
-}
-#[allow(non_snake_case)]
-async fn call_with_payment128_ManagementCanister_sign_with_ecdsa(
-    canister_id_principal: candid::Principal,
-    params: (SignWithEcdsaArgs,),
-    cycles: u128,
-) -> ic_cdk::api::call::CallResult<(SignWithEcdsaResult,)> {
-    ic_cdk::api::call::call_with_payment128(
-        canister_id_principal,
-        "sign_with_ecdsa",
-        params,
-        cycles,
-    )
-    .await
-}
-#[allow(non_snake_case)]
-fn notify_ManagementCanister_sign_with_ecdsa(
-    canister_id_principal: candid::Principal,
-    params: (SignWithEcdsaArgs,),
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify(canister_id_principal, "sign_with_ecdsa", params)
-}
-#[allow(non_snake_case)]
-fn notify_with_payment128_ManagementCanister_sign_with_ecdsa(
-    canister_id_principal: candid::Principal,
-    params: (SignWithEcdsaArgs,),
-    cycles: u128,
-) -> Result<(), ic_cdk::api::call::RejectionCode> {
-    ic_cdk::api::call::notify_with_payment128(
-        canister_id_principal,
-        "sign_with_ecdsa",
-        params,
-        cycles,
-    )
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-struct Header(Box<String>, Box<String>);
 type TimerId = (u64);
 type Duration = (u64);
-type BitcoinAddress = (String);
-type BlockHash = (Vec<u8>);
-type Page = (Vec<u8>);
-type Satoshi = (u64);
-type MillisatoshiPerByte = (u64);
 #[derive(
     serde :: Deserialize,
     Debug,
@@ -5704,8 +3171,55 @@ type MillisatoshiPerByte = (u64);
     Eq,
     PartialEq,
 )]
-enum StreamingStrategy {
-    Callback(Box<CallbackStrategy>),
+enum DeleteUserResult {
+    Ok(Box<User>),
+    Err(Box<DeleteUserErr>),
+}
+#[derive(
+    serde :: Deserialize,
+    Debug,
+    candid :: CandidType,
+    Clone,
+    CdkActTryIntoVmValue,
+    CdkActTryFromVmValue,
+    Ord,
+    PartialOrd,
+    Eq,
+    PartialEq,
+)]
+enum DeleteUserErr {
+    UserDoesNotExist(candid::Principal),
+}
+#[derive(
+    serde :: Deserialize,
+    Debug,
+    candid :: CandidType,
+    Clone,
+    CdkActTryIntoVmValue,
+    CdkActTryFromVmValue,
+    Ord,
+    PartialOrd,
+    Eq,
+    PartialEq,
+)]
+enum DeletePropertyResult {
+    Ok(Box<Property>),
+    Err(Box<DeletePropertyErr>),
+}
+#[derive(
+    serde :: Deserialize,
+    Debug,
+    candid :: CandidType,
+    Clone,
+    CdkActTryIntoVmValue,
+    CdkActTryFromVmValue,
+    Ord,
+    PartialOrd,
+    Eq,
+    PartialEq,
+)]
+enum DeletePropertyErr {
+    PropertyDoesNotExist(String),
 }
 #[derive(
     serde :: Deserialize,
@@ -5807,121 +3321,6 @@ enum StableGrowResult {
 enum Stable64GrowResult {
     Ok(u64),
     Err(Box<StableMemoryError>),
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-enum BitcoinNetwork {
-    Mainnet(()),
-    Regtest(()),
-    Testnet(()),
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-enum UtxosFilter {
-    MinConfirmations(u32),
-    Page(Box<Page>),
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-enum SendTransactionError {
-    MalformedTransaction(()),
-    QueueFull(()),
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-enum HttpMethod {
-    get(()),
-    head(()),
-    post(()),
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-enum EcdsaCurve {
-    secp256k1(()),
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-enum InstallCodeMode {
-    install(()),
-    reinstall(()),
-    upgrade(()),
-}
-#[derive(
-    serde :: Deserialize,
-    Debug,
-    candid :: CandidType,
-    Clone,
-    CdkActTryIntoVmValue,
-    CdkActTryFromVmValue,
-    Ord,
-    PartialOrd,
-    Eq,
-    PartialEq,
-)]
-enum CanisterStatus {
-    running(()),
-    stopping(()),
-    stopped(()),
 }
 candid::export_service!();
 #[no_mangle]

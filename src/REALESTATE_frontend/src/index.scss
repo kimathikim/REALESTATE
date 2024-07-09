@@ -1,0 +1,133 @@
+body {
+  font-family: sans-serif;
+  font-size: 1.0rem;
+  margin: 0;
+  background: linear-gradient(#0083b7 , #bd0385);
+  height: 180vh;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  max-width: 50vw;
+  max-height: 25vw;
+  display: block;
+  margin: auto;
+}
+
+
+
+.container{
+  display:flex;
+  flex-direction:column;
+  margin: auto;
+  margin-top:70px;
+  background: #fff;
+  padding-bottom: 10px;
+  width: 500px;
+  border-radius: 4%;
+    
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  margin-top: 27px;
+}
+.text{
+  color: #d524db;
+  font-size: 30px;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.underline{
+  width: 80px;
+  height: 4px;
+  background: #cf07cf;
+  border-radius: 5px;
+
+}
+.inputs {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 300px;
+  height: 45px;
+  background: #eaeaea;
+  border-radius: 6px;
+}
+.input img{
+  margin: 0px 5px;
+  height: 18px;
+  background-color: #797979;
+}
+.input input{
+  height: 45px;
+  width: 350px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #797979;
+  font-size: 15px;
+}
+
+.forgot-password{
+  padding-left: 150px;
+  margin-top: 30px;
+  color: #797979;
+  font-size: 17px;
+
+}
+.forgot-password span{
+  color: #0083b7;
+  cursor: pointer;
+}
+
+.submit-container {
+  display: flex;
+  gap: 34px;
+  margin: 30px 40px;
+  margin-right: 70px;
+  padding: auto;
+}
+
+.submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 40px;
+  color: #fff;
+  background: #0083b7;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  padding: 5px 20px;
+  margin: 10px auto;
+  float: right;
+  
+}
+
+#greeting {
+  margin: 10px auto;
+  padding: 10px 60px;
+  border: 1px solid #222;
+}
+
+#greeting:empty {
+  display: none;
+}
+
