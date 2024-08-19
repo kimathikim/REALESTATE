@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .listings-page {
+    text-align: center;
+  }
+  
+  .header {
+    background-color: #E0FF00;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header .logo img {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .header .nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header .nav ul li {
+    margin: 0 15px;
+  }
+  
+  .header .nav ul li.cart img {
+    height: 24px;
+  }
+  
+  .main-content {
+    padding: 2rem;
+  }
+  
+  .listings-section {
+    margin-bottom: 2rem;
+  }
+  
+  .listings-section h1 {
+    font-size: 2rem;
+  }
+  
+  .listings-section h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .listings-section p {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  
+  .previous-properties-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .previous-properties-btn:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .notification-section {
+    background-color: #b33a3a;
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-top: 2rem;
+  }
+  
