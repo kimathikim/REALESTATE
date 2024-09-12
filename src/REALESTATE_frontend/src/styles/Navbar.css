@@ -1,0 +1,84 @@
+/* Navbar.css */
+
+/* General Navbar Styling */
+.navbar {
+    background-color: #008080; /* Teal */
+    position: fixed;
+    top: 10px;
+    width: 94%; /* Reduced width to fit the screen */
+     /* Max width to maintain layout integrity */
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    margin: 0 auto; /* Center align the navbar */
+  }
+  
+  /* Logo Styling */
+  .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Navbar Menu */
+  .navbar ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+  
+  /* Navbar Menu Items */
+  .navbar ul li {
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Menu Icon */
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .navbar ul {
+      display: none; /* Hide menu items on small screens */
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  
+    .navbar-menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background-color: #008080; /* Same as navbar background */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      width: 100%; /* Full width on small screens */
+      max-width: 300px; /* Max width for dropdown */
+    }
+    .navbar{
+        width: 80%;
+        max-width: 1200px;
+    }
+    .navbar-menu.open {
+      display: block;
+    }
+  
+    .navbar-menu ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  
